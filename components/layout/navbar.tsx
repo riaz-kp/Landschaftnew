@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
@@ -22,7 +23,12 @@ const navItems = [
 
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false)
+    const [mounted, setMounted] = React.useState(false)
     const pathname = usePathname()
+
+    React.useEffect(() => {
+        setMounted(true)
+    }, [])
 
     // Lock body scroll when menu is open
     React.useEffect(() => {
@@ -42,7 +48,7 @@ export function Navbar() {
     }, [pathname])
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+        <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
             <Container className="flex h-16 items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2 z-50 relative">
@@ -79,53 +85,81 @@ export function Navbar() {
                     {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
 
-                {/* Mobile Navigation Overlay */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="fixed inset-0 z-40 flex flex-col bg-background pt-24 px-6 md:hidden overflow-y-auto"
-                        >
-                            <nav className="flex flex-col gap-6">
-                                {navItems.map((item, index) => (
-                                    <motion.div
-                                        key={item.href}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.1 + index * 0.05 }}
+                {/* Mobile Navigation Overlay - Portalled out of header context */}
+                {mounted && createPortal(
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="fixed inset-0 z-[9999] flex flex-col bg-background h-[100dvh] w-screen"
+                            >
+                                {/* Mobile Header for Close Button */}
+                                <div className="flex items-center justify-between p-4 px-6 border-b h-16">
+                                    <span className="text-xl font-bold tracking-tight text-primary">LANDSCHAFT</span>
+                                    <button
+                                        className="p-2 -mr-2 text-foreground focus:outline-none"
+                                        onClick={() => setIsOpen(false)}
+                                        aria-label="Close menu"
                                     >
-                                        <Link
-                                            href={item.href}
-                                            className={cn(
-                                                "text-3xl font-medium tracking-tight hover:text-primary transition-colors block py-2",
-                                                pathname === item.href ? "text-primary" : "text-foreground/80"
-                                            )}
-                                            onClick={() => setIsOpen(false)}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    </motion.div>
-                                ))}
+                                        <X className="h-6 w-6" />
+                                    </button>
+                                </div>
 
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                    className="pt-8"
-                                >
-                                    <Button className="w-full text-lg h-12" size="lg" asChild>
-                                        <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                            Book Consultation
-                                        </Link>
-                                    </Button>
-                                </motion.div>
-                            </nav>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                                <nav className="flex-1 flex flex-col justify-center gap-6 p-8 overflow-y-auto">
+                                    {navItems.map((item, index) => {
+                                        const isActive = item.href === "/"
+                                            ? pathname === "/"
+                                            : pathname?.startsWith(item.href)
+
+                                        return (
+                                            <motion.div
+                                                key={item.href}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.1 + index * 0.05 }}
+                                                className="text-center"
+                                            >
+                                                <Link
+                                                    href={item.href}
+                                                    className={cn(
+                                                        "text-xl font-light tracking-tight transition-colors inline-flex items-center gap-4",
+                                                        isActive ? "text-primary italic" : "text-foreground hover:text-primary"
+                                                    )}
+                                                    onClick={() => setIsOpen(false)}
+                                                >
+                                                    {isActive && (
+                                                        <motion.span
+                                                            layoutId="activeDot"
+                                                            className="h-2 w-2 rounded-full bg-primary"
+                                                        />
+                                                    )}
+                                                    {item.name}
+                                                </Link>
+                                            </motion.div>
+                                        )
+                                    })}
+
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 0.5 }}
+                                        className="pt-12 flex justify-center"
+                                    >
+                                        <Button className="w-full max-w-xs text-lg h-14 rounded-full" size="lg" asChild>
+                                            <Link href="/contact" onClick={() => setIsOpen(false)}>
+                                                Book Consultation
+                                            </Link>
+                                        </Button>
+                                    </motion.div>
+                                </nav>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>,
+                    document.body
+                )}
             </Container>
         </header>
     )
