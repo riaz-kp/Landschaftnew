@@ -1,0 +1,70 @@
+import { Container } from "@/components/layout/container"
+import { ServiceSection } from "@/components/services/service-section"
+
+const services = [
+    {
+        id: "design",
+        title: "Design & Consulting",
+        description: "Our design process is rooted in a deep understanding of the site's ecology and your lifestyle. We move from broad conceptual master planning to intricate planting details.",
+        features: ["Site analysis & Ecology study", "Concept development", "Master planning", "Planting design", "Working drawings"],
+        image: "/images/design.jpg"
+    },
+    {
+        id: "hardscape",
+        title: "Hardscaping",
+        description: "The backbone of your landscape. We use natural materials and precise craftsmanship to build enduring structures that define spaces and guide movement.",
+        features: ["Patios & Terraces", "Pathways & Walkways", "Retaining walls", "Outdoor structures (Pergolas, Gazebos)"],
+        image: "/images/hardscape.jpg"
+    },
+    {
+        id: "softscape",
+        title: "Softscaping",
+        description: "The living element. We curate plant palettes that thrive in the local climate, creating lush, resilient gardens that change beautifully with the seasons.",
+        features: ["Native planting schemes", "Meadow gardens", "Ecological restoration", "Seasonal color design"],
+        image: "/images/softscape.jpg"
+    },
+    {
+        id: "water",
+        title: "Water Features",
+        description: "Water brings life, sound, and movement. From tranquil koi ponds to architectural fountains, we integrate water elements that cool the air and calm the mind.",
+        features: ["Natural Ponds", "Swimming Pools", "Architectural Fountains", "Rain gardens & Bioswales"],
+        image: "/images/water.jpg"
+    },
+    {
+        id: "irrigation",
+        title: "Irrigation & Lighting",
+        description: "Technical systems that ensure your garden's health and usability day and night. Smart, efficient, and subtle.",
+        features: ["Water-efficient drip systems", "Smart controllers", "Subtle architectural lighting", "Path & Security lighting"],
+        image: "/images/irrigation.jpg"
+    },
+    {
+        id: "maintenance",
+        title: "Maintenance",
+        description: "A garden is never finished; it grows. Our skilled horticulture team provides ongoing care to ensure your landscape reaches its full potential.",
+        features: ["Seasonal pruning & care", "Irrigation monitoring", "Plant health management", "Lawn care & aeration"],
+        image: "/images/maintenance.jpg"
+    }
+]
+
+export default function ServicesPage() {
+    return (
+        <div className="flex flex-col min-h-screen">
+            <section className="pt-32 pb-16 bg-background">
+                <Container className="text-center">
+                    <h1 className="text-4xl font-light text-foreground sm:text-5xl md:text-6xl">Our Services</h1>
+                    <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+                        From initial concept to long-term care, we offer a holistic approach to landscape architecture and execution.
+                    </p>
+                </Container>
+            </section>
+
+            {services.map((service, index) => (
+                <ServiceSection
+                    key={service.id}
+                    {...service}
+                    reversed={index % 2 !== 0}
+                />
+            ))}
+        </div>
+    )
+}
