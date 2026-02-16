@@ -36,9 +36,9 @@ export function AboutSnapshot() {
                         </li>
                     </ul>
                     <div className="pt-4">
-                        <Button variant="outline" size="lg" asChild>
+                        {/* <Button variant="outline" size="lg" asChild>
                             <Link href="/about">More About Us</Link>
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Container>

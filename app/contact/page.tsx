@@ -25,19 +25,19 @@ export default function ContactPage() {
                                     <div className="flex items-start gap-4">
                                         <MapPin className="h-6 w-6 text-primary mt-1" />
                                         <div>
-                                            <p className="font-medium text-foreground">Studio Landscape</p>
-                                            <p className="text-muted-foreground">Kondotty, Malappuram District<br />Kerala, India 673638</p>
+                                            <p className="font-medium text-foreground">Landschaft</p>
+                                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" className="text-muted-foreground">2nd Floor, Watani Complex, Kondotty (Kizhisseri) <br />Kerala, India 673641</a>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center gap-4">
                                         <Phone className="h-6 w-6 text-primary" />
-                                        <a href="tel:+918129008988" className="text-muted-foreground hover:text-primary transition-colors">+91 9747 00 8988</a>
+                                        <a href="tel:+919645333700" className="text-muted-foreground hover:text-primary transition-colors">+91 9645 333 700</a>
                                     </div>
 
                                     <div className="flex items-center gap-4">
                                         <Mail className="h-6 w-6 text-primary" />
-                                        <a href="mailto:hello@landschaft.com" className="text-muted-foreground hover:text-primary transition-colors">hello@landschaft.com</a>
+                                        <a href="mailto:teamlandschaft@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">teamlandschaft@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                             <div className="pt-8 border-t">
                                 <h2 className="text-xl font-light text-foreground mb-4">Follow Us</h2>
                                 <div className="flex gap-4">
-                                    <a href="#" className="p-3 bg-muted rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all">
+                                    <a href="https://www.instagram.com/teamlandschaft" className="p-3 bg-muted rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all">
                                         <Instagram className="h-5 w-5" />
                                     </a>
                                     <a href="#" className="p-3 bg-muted rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all">

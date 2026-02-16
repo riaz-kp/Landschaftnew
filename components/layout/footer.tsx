@@ -38,12 +38,12 @@ export function Footer() {
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold text-foreground">Contact</h3>
                         <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                            <p>Kondotty, Kerala</p>
-                            <p>+91 XXXXX XXXXX</p>
-                            <p>hello@landschaft.com</p>
+                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9">Kondotty, Kerala</a>
+                            <a href="tel:+91 9645 333 700">+91 9645 333 700</a>
+                            <a href="mailto:teamlandschaft@gmail.com">teamlandschaft@gmail.com</a>
                             <div className="flex gap-4 mt-2">
                                 {/* Social icons would go here */}
-                                <span className="text-xs uppercase tracking-wider">Instagram</span>
+                                <a href="https://www.instagram.com/teamlandschaft" className="text-xs uppercase tracking-wider">Instagram</a>
                                 <span className="text-xs uppercase tracking-wider">LinkedIn</span>
                             </div>
                         </div>

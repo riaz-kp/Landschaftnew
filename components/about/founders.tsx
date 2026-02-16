@@ -3,14 +3,14 @@ import { Container } from "@/components/layout/container"
 const founders = [
     {
         name: "Ashfaq Rahman",
-        role: "Founder & Principal Architect",
-        quote: "Design is about finding the inherent potential of a site and revealing it through form and function.",
+        role: "Founder & Managing Director",
+        quote: "A good landscape is built through discipline, detail, and respect for how it will be used every day.",
         image: "/images/ashfaq.jpg" // Placeholder
     },
     {
         name: "Anees Jabaly",
-        role: "Co-Founder & Lead Planner",
-        quote: "Environmental planning is the bridge between human aspiration and ecological necessity.",
+        role: "Co-Founder & Design Director",
+        quote: "Clarity in design creates landscapes that feel natural, purposeful, and timeless.",
         image: "/images/anees.jpg" // Placeholder
     }
 ]
