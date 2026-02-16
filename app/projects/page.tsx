@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data/projects"
 import { cn } from "@/lib/utils"
 
-const categories = ["All", "Residential", "Commercial", "Hospitality"]
+const categories = ["All", "Residential", "Commercial"]
 
 export default function ProjectsPage() {
     const [filter, setFilter] = useState("All")

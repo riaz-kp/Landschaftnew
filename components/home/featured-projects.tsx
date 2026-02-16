@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 const projects = [
     { id: 1, title: "Hillside Residence", location: "Calicut", type: "Residential" },
     { id: 2, title: "Urban Oasis", location: "Kochi", type: "Commercial" },
-    { id: 3, title: "Riverside Retreat", location: "Wayanad", type: "Hospitality" },
+    { id: 3, title: "The Courtyard House", location: "Malappuram", type: "Residential" },
 ]
 
 export function FeaturedProjects() {

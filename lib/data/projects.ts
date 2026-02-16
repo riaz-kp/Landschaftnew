@@ -2,7 +2,7 @@ export interface Project {
     slug: string
     title: string
     location: string
-    category: "Residential" | "Commercial" | "Hospitality"
+    category: "Residential" | "Commercial"
     area: string
     year: string
     description: string
@@ -33,17 +33,7 @@ export const projects: Project[] = [
         image: "/images/project2.jpg",
         gallery: ["/images/project2-1.jpg", "/images/project2-2.jpg"]
     },
-    {
-        slug: "riverside-retreat",
-        title: "Riverside Retreat",
-        location: "Wayanad, Kerala",
-        category: "Hospitality",
-        area: "4 Acres",
-        year: "2022",
-        description: "An eco-resort designed to have minimal impact on the sensitive riparian ecosystem. The landscape design emphasizes biodiversity restoration and water conservation, offering guests an immersive nature experience.",
-        image: "/images/project3.jpg",
-        gallery: ["/images/project3-1.jpg", "/images/project3-2.jpg"]
-    },
+
     {
         slug: "courtyard-house",
         title: "The Courtyard House",
