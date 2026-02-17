@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data/projects"
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
 
 const categories = ["All", "Residential", "Commercial"]
 
