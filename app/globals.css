@@ -30,37 +30,38 @@
 }
 
 :root {
-  --background: 40 20% 97%;
-  /* Soft cream/off-white */
-  --foreground: 160 10% 15%;
-  /* Dark charcoal/green tone */
+  --background: 40 20% 98%;
+  /* Crisp off-white */
+  --foreground: 160 30% 10%;
+  /* Deep jungle charcoal - High Contrast */
 
-  --primary: 160 30% 25%;
-  /* Deep nature green */
-  --primary-foreground: 40 20% 97%;
+  --primary: 155 40% 20%;
+  /* Deep architectural green */
+  --primary-foreground: 40 20% 98%;
 
-  --secondary: 35 20% 90%;
-  /* Light beige */
-  --secondary-foreground: 160 10% 15%;
+  --secondary: 40 10% 92%;
+  /* Subtle stone grey/beige */
+  --secondary-foreground: 160 30% 10%;
 
-  --accent: 85 30% 45%;
-  /* Muted olive/fern */
-  --accent-foreground: 40 20% 97%;
+  --accent: 85 20% 35%;
+  /* Deep olive - Muted */
+  --accent-foreground: 40 20% 98%;
 
-  --muted: 35 15% 94%;
+  --muted: 40 10% 94%;
   --muted-foreground: 160 5% 40%;
 
-  --card: 40 20% 97%;
-  --card-foreground: 160 10% 15%;
+  --card: 40 20% 98%;
+  --card-foreground: 160 30% 10%;
 
-  --popover: 40 20% 97%;
-  --popover-foreground: 160 10% 15%;
+  --popover: 40 20% 98%;
+  --popover-foreground: 160 30% 10%;
 
-  --border: 35 10% 85%;
-  --input: 35 10% 85%;
-  --ring: 160 30% 25%;
+  --border: 160 5% 85%;
+  --input: 160 5% 85%;
+  --ring: 155 40% 20%;
 
-  --radius: 0.2rem;
+  --radius: 0rem;
+  /* Architectural sharp corners */
 }
 
 @layer base {
