@@ -7,6 +7,7 @@
         "area": "2 Acres",
         "year": "2021",
         "description": "A formal yet ecological approach to corporate landscaping. Structured hardscapes meet wilder planting zones to create a dynamic environment for collaboration and rest.",
+        "featured": true,
         "image": "/images/project5.jpg",
         "gallery": [
             "/images/project5-1.jpg"

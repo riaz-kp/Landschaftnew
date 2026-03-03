@@ -9,9 +9,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "sonner"
-import { MapPin, Image as ImageIcon, UploadCloud } from "lucide-react"
+import { MapPin, Image as ImageIcon, UploadCloud, Star } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 function ImageDropzone({ onDrop, accept, multiple, label, currentImages }: any) {
@@ -109,6 +110,7 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                 area: currentProject.area || "",
                 year: currentProject.year || new Date().getFullYear().toString(),
                 description: currentProject.description || "",
+                featured: currentProject.featured || false,
                 image: finalCoverImage,
                 gallery: finalGallery
             }
@@ -144,12 +146,22 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
         }
     }
 
+    const handleToggleFeatured = async (project: Project, featured: boolean) => {
+        try {
+            await updateProject({ ...project, featured })
+            toast.success(`Project ${featured ? 'added to' : 'removed from'} home page`)
+            router.refresh()
+        } catch (error) {
+            toast.error("Failed to update project status")
+        }
+    }
+
     return (
         <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-4">
                 <div className="flex justify-between items-center bg-muted/30 border border-border/50 p-4 rounded-xl shadow-sm">
                     <h2 className="text-xl font-semibold">Projects List</h2>
-                    <Button onClick={() => openEdit()} className="shadow-sm">Add New Project</Button>
+                    <Button onClick={() => openEdit({ featured: false })} className="shadow-sm">Add New Project</Button>
                 </div>
 
                 {initialProjects.length === 0 ? (
@@ -164,6 +176,12 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                     {project.image && project.image !== "/placeholder.svg" ? (
                                         <div className="relative aspect-[16/9] w-full bg-muted border-b border-border/50">
                                             <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                                            {project.featured && (
+                                                <div className="absolute top-2 right-2 bg-yellow-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm flex items-center gap-1">
+                                                    <Star className="w-3 h-3 fill-current" />
+                                                    HOME
+                                                </div>
+                                            )}
                                         </div>
                                     ) : (
                                         <div className="relative aspect-[16/9] w-full bg-muted/50 border-b border-border/50 flex flex-col items-center justify-center text-muted-foreground gap-2">
@@ -172,18 +190,30 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                         </div>
                                     )}
                                     <CardHeader className="px-5 py-4">
-                                        <CardTitle className="text-xl">{project.title}</CardTitle>
-                                        <CardDescription className="flex items-center gap-1.5 mt-1">
-                                            <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-primary/5 text-primary border-primary/10">
-                                                {project.category}
-                                            </span>
-                                            {project.location && (
-                                                <span className="flex flex-wrap items-center gap-1 text-xs">
-                                                    <MapPin className="w-3 h-3" />
-                                                    {project.location}
-                                                </span>
-                                            )}
-                                        </CardDescription>
+                                        <div className="flex justify-between items-start gap-3">
+                                            <div className="flex-1 min-w-0">
+                                                <CardTitle className="text-xl truncate">{project.title}</CardTitle>
+                                                <CardDescription className="flex items-center gap-1.5 mt-2">
+                                                    <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-primary/5 text-primary border-primary/10 shrink-0">
+                                                        {project.category}
+                                                    </span>
+                                                    {project.location && (
+                                                        <span className="flex items-center gap-1 text-xs truncate text-muted-foreground">
+                                                            <MapPin className="w-3 h-3 shrink-0" />
+                                                            <span className="truncate">{project.location}</span>
+                                                        </span>
+                                                    )}
+                                                </CardDescription>
+                                            </div>
+                                            <div className="flex flex-col items-center gap-1.5 shrink-0 pt-0.5">
+                                                <Switch
+                                                    checked={project.featured || false}
+                                                    onCheckedChange={(checked) => handleToggleFeatured(project, checked)}
+                                                    className="data-[state=checked]:bg-yellow-500 scale-[0.85] origin-top-right md:scale-100"
+                                                    title="Toggle Homepage Visibility"
+                                                />
+                                            </div>
+                                        </div>
                                     </CardHeader>
                                     <CardContent className="px-5 py-0 pb-4">
                                         <p className="text-sm text-muted-foreground line-clamp-2">
@@ -247,6 +277,22 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                         value={currentProject.location || ""}
                                         onChange={e => setCurrentProject(prev => ({ ...prev, location: e.target.value }))}
                                     />
+                                </div>
+                            </div>
+
+                            <div className="flex items-center space-x-2 border p-3 rounded-md bg-background/50 border-input">
+                                <Switch
+                                    id="featured-mode"
+                                    checked={currentProject.featured || false}
+                                    onCheckedChange={(checked) => setCurrentProject(prev => ({ ...prev, featured: checked }))}
+                                />
+                                <div className="space-y-0.5">
+                                    <label htmlFor="featured-mode" className="text-sm font-medium leading-none cursor-pointer">
+                                        Show on Home Page
+                                    </label>
+                                    <p className="text-[12px] text-muted-foreground">
+                                        Turn this on to display this project in the featured section.
+                                    </p>
                                 </div>
                             </div>
 
