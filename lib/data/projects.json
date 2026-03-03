@@ -1,16 +1,34 @@
 [
     {
-        "slug": "corporate-park",
-        "title": "Tech Park Plazaqw",
-        "location": "Trivandrum, Kerala",
-        "category": "Commercial",
-        "area": "2 Acres",
-        "year": "2021",
-        "description": "A formal yet ecological approach to corporate landscaping. Structured hardscapes meet wilder planting zones to create a dynamic environment for collaboration and rest.",
-        "featured": true,
-        "image": "/images/project5.jpg",
+        "slug": "r",
+        "title": "rgdrg",
+        "location": "dfgdfg",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "dsgfg",
+        "featured": false,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570503/landschaft/j24g8bhyyeqeox4x8buv.jpg",
         "gallery": [
-            "/images/project5-1.jpg"
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570504/landschaft/zzjshbkgjqnts1ijccmg.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570505/landschaft/x308kg5yirgf6izv945g.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570506/landschaft/kzi0qcjgwvpqyzkinayv.jpg"
+        ]
+    },
+    {
+        "slug": "d",
+        "title": "drgdrtrdtrdst",
+        "location": "rtertrtret",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "ertertretre",
+        "featured": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570689/landschaft_project_images/t8lgmrxqwemzaricxoc8.jpg",
+        "gallery": [
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570697/landschaft_project_images/xrfl1hzz0gczva547z88.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570699/landschaft_project_images/uvxyviclb1xle3pallzs.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570700/landschaft_project_images/fzeprlmbt5ziakkezh4z.jpg"
         ]
     }
 ]

@@ -135,14 +135,14 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
 
 
 
-    const openEdit = (p?: Project) => {
+    const openEdit = (p?: Partial<Project>) => {
         setIsEditing(true)
         setNewCoverFile(null)
         setNewGalleryFiles([])
         if (p) {
             setCurrentProject({ ...p })
         } else {
-            setCurrentProject({ category: "Residential", gallery: [] }) // Defaults
+            setCurrentProject({ category: "Residential", gallery: [], featured: false }) // Defaults
         }
     }
 

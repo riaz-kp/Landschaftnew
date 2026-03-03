@@ -2,9 +2,9 @@
 
 import fs from "fs"
 import path from "path"
-import { writeFile } from "fs/promises"
 import { revalidatePath } from "next/cache"
 import { Project } from "@/lib/data/projects"
+import cloudinary from "@/lib/cloudinary"
 
 const dataFilePath = path.join(process.cwd(), "lib", "data", "projects.json")
 
@@ -52,15 +52,34 @@ export async function uploadImage(formData: FormData) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    const filename = Date.now() + "-" + file.name.replace(/\s+/g, '-');
-    const uploadDir = path.join(process.cwd(), "public", "images");
+    return new Promise<string | null>((resolve, reject) => {
+        // Double check environment variables are available
+        if (!process.env.CLOUDINARY_API_KEY) {
+            console.error("Missing CLOUDINARY_API_KEY in environment variables");
+            resolve(null);
+            return;
+        }
 
-    if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-    }
+        // Ensure configuration is applied with current process.env
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET,
+        });
 
-    const filePath = path.join(uploadDir, filename);
-    await writeFile(filePath, buffer);
-
-    return `/images/${filename}`;
+        cloudinary.uploader.upload_stream(
+            {
+                folder: "landschaft_project_images",
+                resource_type: "auto"
+            },
+            (error, result) => {
+                if (error) {
+                    console.error("Cloudinary upload error:", error);
+                    resolve(null);
+                } else {
+                    resolve(result?.secure_url || null);
+                }
+            }
+        ).end(buffer);
+    });
 }
