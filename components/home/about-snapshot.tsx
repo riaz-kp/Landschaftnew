@@ -6,11 +6,10 @@ export function AboutSnapshot() {
     return (
         <section className="py-24 bg-muted/30">
             <Container className="grid gap-12 md:grid-cols-2 items-center">
-                <div className="relative aspect-square md:aspect-[4/5] bg-neutral-200 rounded-lg overflow-hidden">
-                    {/* Placeholder for image */}
-                    <div className="absolute inset-0 bg-neutral-300" />
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                        Image: Team or Studio
+                <div className="relative aspect-square md:aspect-[4/5] bg-neutral-200 rounded-lg overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 border border-primary/10 m-4 rounded-[inherit] transition-all duration-300 group-hover:m-2">
+                        <span className="font-light tracking-widest text-sm uppercase">Team / Studio</span>
                     </div>
                 </div>
                 <div className="flex flex-col gap-6">
