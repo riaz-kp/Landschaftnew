@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import fs from "fs"
 import path from "path"
 import { Container } from "@/components/layout/container"
@@ -22,7 +23,9 @@ export default async function AdminPage() {
                         Manage your projects directly from this panel. Changes are saved automatically.
                     </p>
                 </div>
-                <AdminDashboard initialProjects={projects} />
+                <Suspense fallback={<div>Loading dashboard...</div>}>
+                    <AdminDashboard initialProjects={projects} />
+                </Suspense>
             </Container>
         </div>
     )

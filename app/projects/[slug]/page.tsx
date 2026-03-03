@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, MapPin, Tag } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data/projects"
@@ -21,8 +21,9 @@ export async function generateStaticParams() {
     }))
 }
 
-export default function ProjectPage({ params }: PageProps) {
-    const project = projects.find((p) => p.slug === params.slug)
+export default async function ProjectPage({ params }: PageProps) {
+    const { slug } = await params
+    const project = projects.find((p) => p.slug === slug)
 
     if (!project) {
         notFound()
@@ -32,81 +33,83 @@ export default function ProjectPage({ params }: PageProps) {
         <article className="flex flex-col min-h-screen">
             {/* Hero Image */}
             <div className="relative h-[60vh] md:h-[70vh] w-full bg-neutral-200 overflow-hidden">
-                <div className="absolute inset-0 bg-neutral-300" />
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-4xl font-light">
-                    {project.title} (Hero Image)
-                </div>
-                <div className="absolute inset-0 bg-black/20" />
+                {project.image ? (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                ) : (
+                    <div className="absolute inset-0 bg-neutral-300" />
+                )}
+                <div className="absolute inset-0 bg-black/30" />
 
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white bg-gradient-to-t from-black/60 to-transparent">
+                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white bg-gradient-to-t from-black/80 to-transparent">
                     <Container>
                         <h1 className="text-4xl md:text-6xl font-light">{project.title}</h1>
-                        <p className="mt-2 text-lg md:text-xl font-light opacity-90">{project.category} • {project.location}</p>
+                        <div className="mt-4 flex flex-wrap items-center gap-6 text-lg md:text-xl font-light opacity-90">
+                            <span className="flex items-center gap-2">
+                                <Tag className="w-5 h-5" />
+                                {project.category}
+                            </span>
+                            {project.location && (
+                                <span className="flex items-center gap-2">
+                                    <MapPin className="w-5 h-5" />
+                                    {project.location}
+                                </span>
+                            )}
+                        </div>
                     </Container>
                 </div>
             </div>
 
-            <Container className="py-24">
-                <div className="grid gap-16 lg:grid-cols-[1fr_300px] lg:gap-24">
-                    <div className="space-y-8">
-                        <h2 className="text-2xl font-light text-foreground">Concept & Design</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                            {project.description}
-                            {"\n\n"}
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-
-                        {/* Gallery Grid placeholder */}
-                        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-                            <div className="aspect-square bg-neutral-100 rounded-lg" />
-                            <div className="aspect-square bg-neutral-100 rounded-lg" />
-                        </div>
-                    </div>
-
-                    {/* Sidebar Info */}
-                    <div className="space-y-8 lg:border-l lg:pl-12 h-fit lg:sticky lg:top-24">
+            <Container className="py-8 md:py-16">
+                <div className="grid gap-8 lg:grid-cols-[1fr_300px] lg:gap-20">
+                    {/* Project Brief - Top on mobile, Sidebar on desktop */}
+                    <div className="lg:order-2 space-y-6 lg:border-l lg:pl-12 h-fit lg:sticky lg:top-24">
                         <div>
-                            <h3 className="text-sm font-semibold uppercase tracking-widest text-primary/80">Project Details</h3>
-                            <dl className="mt-6 space-y-4 text-sm">
-                                <div>
-                                    <dt className="font-medium text-foreground">Location</dt>
-                                    <dd className="text-muted-foreground">{project.location}</dd>
-                                </div>
-                                <div>
-                                    <dt className="font-medium text-foreground">Year</dt>
-                                    <dd className="text-muted-foreground">{project.year}</dd>
-                                </div>
-                                <div>
-                                    <dt className="font-medium text-foreground">Site Area</dt>
-                                    <dd className="text-muted-foreground">{project.area}</dd>
-                                </div>
-                                <div>
-                                    <dt className="font-medium text-foreground">Scope</dt>
-                                    <dd className="text-muted-foreground">Master Planning, Landscape Design</dd>
-                                </div>
-                            </dl>
-                        </div>
-
-                        <div className="pt-8 border-t">
-                            <h3 className="text-sm font-semibold uppercase tracking-widest text-primary/80 mb-4">Materials Palette</h3>
-                            <div className="flex gap-2 flex-wrap">
-                                <span className="px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">Laterite</span>
-                                <span className="px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">Granite</span>
-                                <span className="px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">River Pebble</span>
+                            <h3 className="text-sm font-semibold uppercase tracking-widest text-primary/80">Project Brief</h3>
+                            <div className="mt-4 text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                {project.description}
                             </div>
                         </div>
 
-                        <div className="pt-12">
-                            <Button variant="outline" asChild className="w-full">
+                    </div>
+
+                    {/* Gallery Grid - Below brief on mobile, Main on desktop */}
+                    <div className="lg:order-1 space-y-8">
+                        <div className="flex items-center gap-4 mb-6">
+                            <Button variant="outline" size="sm" asChild className="hidden lg:flex shrink-0">
+                                <Link href="/projects" className="flex items-center gap-2">
+                                    <ArrowLeft className="h-4 w-4" /> Back to Projects
+                                </Link>
+                            </Button>
+                            <h2 className="text-2xl font-light text-foreground">Gallery</h2>
+                        </div>
+
+                        {/* Mobile Back Button - visible between Brief and Gallery on small screens */}
+                        <div className="lg:hidden">
+                            <Button variant="outline" size="sm" asChild className="w-full">
                                 <Link href="/projects" className="flex items-center justify-center gap-2">
                                     <ArrowLeft className="h-4 w-4" /> Back to Projects
                                 </Link>
                             </Button>
                         </div>
+
+                        {project.gallery && project.gallery.length > 0 && (
+                            <section>
+                                <div className="grid gap-4 sm:grid-cols-2">
+                                    {project.gallery.map((img, i) => (
+                                        <div key={i} className="aspect-square bg-neutral-100 rounded-lg overflow-hidden border">
+                                            <img src={img} alt={`${project.title} gallery ${i}`} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
                     </div>
                 </div>
-            </Container>
-        </article>
+            </Container >
+        </article >
     )
 }

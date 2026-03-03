@@ -46,11 +46,15 @@ export default function ProjectsPage() {
                         {filteredProjects.map((project) => (
                             <Link key={project.slug} href={`/projects/${project.slug}`} className="group block">
                                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
-                                    {/* Placeholder Image */}
-                                    <div className="absolute inset-0 bg-neutral-300 transition-transform duration-700 ease-out group-hover:scale-105" />
-                                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 text-xl font-light">
-                                        {project.title}
-                                    </div>
+                                    {project.image ? (
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 bg-neutral-300 transition-transform duration-700 ease-out group-hover:scale-105" />
+                                    )}
 
                                     {/* Image Overlay */}
                                     <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />

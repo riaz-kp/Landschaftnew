@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { useDropzone } from "react-dropzone"
 import { Project } from "@/lib/data/projects"
 import { addProject, deleteProject, updateProject, uploadImage } from "./actions"
@@ -12,8 +13,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "sonner"
-import { MapPin, Image as ImageIcon, UploadCloud, Star } from "lucide-react"
+import { MapPin, Image as ImageIcon, UploadCloud, Star, Eye } from "lucide-react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 function ImageDropzone({ onDrop, accept, multiple, label, currentImages }: any) {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept, multiple })
@@ -50,6 +52,18 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [currentProject, setCurrentProject] = useState<Partial<Project>>({})
     const [projectToDelete, setProjectToDelete] = useState<string | null>(null)
+
+    const searchParams = useSearchParams()
+    const editSlug = searchParams.get('edit')
+
+    useEffect(() => {
+        if (editSlug) {
+            const projectToEdit = initialProjects.find(p => p.slug === editSlug)
+            if (projectToEdit) {
+                openEdit(projectToEdit)
+            }
+        }
+    }, [editSlug, initialProjects])
 
     const [newCoverFile, setNewCoverFile] = useState<File | null>(null)
     const [newGalleryFiles, setNewGalleryFiles] = useState<File[]>([])
@@ -173,26 +187,33 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                         {initialProjects.map(project => (
                             <Card key={project.slug} className="flex flex-col justify-between overflow-hidden transition-all hover:shadow-md border-border/50 bg-background/50">
                                 <div>
-                                    {project.image && project.image !== "/placeholder.svg" ? (
-                                        <div className="relative aspect-[16/9] w-full bg-muted border-b border-border/50">
-                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                                            {project.featured && (
-                                                <div className="absolute top-2 right-2 bg-yellow-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm flex items-center gap-1">
-                                                    <Star className="w-3 h-3 fill-current" />
-                                                    HOME
-                                                </div>
-                                            )}
-                                        </div>
-                                    ) : (
-                                        <div className="relative aspect-[16/9] w-full bg-muted/50 border-b border-border/50 flex flex-col items-center justify-center text-muted-foreground gap-2">
-                                            <ImageIcon className="w-8 h-8 opacity-20" />
-                                            <span className="text-xs font-medium uppercase tracking-wider opacity-50">No Cover</span>
-                                        </div>
-                                    )}
+                                    <Link href={`/admin/projects/${project.slug}`} className="block group/image">
+                                        {project.image && project.image !== "/placeholder.svg" ? (
+                                            <div className="relative aspect-[16/9] w-full bg-muted border-b border-border/50 overflow-hidden">
+                                                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105" />
+                                                {project.featured && (
+                                                    <div className="absolute top-2 right-2 bg-yellow-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm flex items-center gap-1">
+                                                        <Star className="w-3 h-3 fill-current" />
+                                                        HOME
+                                                    </div>
+                                                )}
+                                                <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/10 transition-colors" />
+                                            </div>
+                                        ) : (
+                                            <div className="relative aspect-[16/9] w-full bg-muted/50 border-b border-border/50 flex flex-col items-center justify-center text-muted-foreground gap-2 group-hover/image:bg-muted/80 transition-colors">
+                                                <ImageIcon className="w-8 h-8 opacity-20" />
+                                                <span className="text-xs font-medium uppercase tracking-wider opacity-50">No Cover</span>
+                                            </div>
+                                        )}
+                                    </Link>
                                     <CardHeader className="px-5 py-4">
                                         <div className="flex justify-between items-start gap-3">
                                             <div className="flex-1 min-w-0">
-                                                <CardTitle className="text-xl truncate">{project.title}</CardTitle>
+                                                <CardTitle className="text-xl truncate">
+                                                    <Link href={`/admin/projects/${project.slug}`} className="hover:text-primary transition-colors">
+                                                        {project.title}
+                                                    </Link>
+                                                </CardTitle>
                                                 <CardDescription className="flex items-center gap-1.5 mt-2">
                                                     <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-primary/5 text-primary border-primary/10 shrink-0">
                                                         {project.category}
@@ -222,8 +243,12 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                     </CardContent>
                                 </div>
                                 <CardFooter className="px-5 py-4 border-t border-border/50 bg-muted/20 flex gap-3">
-                                    <Button variant="outline" size="sm" className="flex-1 shadow-sm" onClick={() => openEdit(project)}>Edit</Button>
-                                    <Button variant="destructive" size="sm" className="flex-1 shadow-sm bg-red-500 text-white hover:bg-red-600 transition-colors" onClick={() => setProjectToDelete(project.slug)}>Delete</Button>
+                                    <Button variant="outline" size="sm" className="flex-1 shadow-sm" onClick={() => openEdit(project)}>
+                                        Edit
+                                    </Button>
+                                    <Button variant="destructive" size="sm" className="flex-1 shadow-sm bg-red-500 text-white hover:bg-red-600 transition-colors" onClick={() => setProjectToDelete(project.slug)}>
+                                        Delete
+                                    </Button>
                                 </CardFooter>
                             </Card>
                         ))}
