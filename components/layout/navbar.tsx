@@ -47,6 +47,8 @@ export function Navbar() {
         setIsOpen(false)
     }, [pathname])
 
+    if (pathname?.startsWith("/admin")) return null
+
     return (
         <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
             <Container className="flex h-16 items-center justify-between">

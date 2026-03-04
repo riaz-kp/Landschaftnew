@@ -21,39 +21,39 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
     }
 
     return (
-        <div className="min-h-screen bg-muted/30 pb-12">
-            <div className="bg-background border-b sticky top-0 z-10">
-                <Container className="py-4 flex items-center justify-between">
+        <div className="min-h-screen bg-slate-50/50 pb-12">
+            <div className="bg-white border-b sticky top-0 z-10 shadow-sm">
+                <div className="px-6 py-4 flex items-center justify-between mx-auto max-w-6xl">
                     <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="sm" asChild>
+                        <Button variant="ghost" size="sm" asChild className="hover:bg-slate-100">
                             <Link href="/admin">
-                                <ArrowLeft className="h-4 w-4 mr-2" /> Back to Dashboard
+                                <ArrowLeft className="h-4 w-4 mr-2 text-slate-500" /> Back
                             </Link>
                         </Button>
-                        <div className="h-4 w-[1px] bg-border mx-2" />
-                        <h1 className="text-lg font-semibold truncate max-w-[200px] md:max-w-md">{project.title}</h1>
+                        <div className="h-4 w-[1px] bg-slate-200" />
+                        <h1 className="text-lg font-bold text-slate-900 truncate max-w-[150px] md:max-w-md">{project.title}</h1>
                         {project.featured && (
-                            <Badge variant="secondary" className="bg-yellow-500/10 text-yellow-600 border-yellow-500/20 ml-2">
+                            <Badge variant="secondary" className="bg-yellow-100 text-yellow-700 border-yellow-200 ml-2">
                                 Featured
                             </Badge>
                         )}
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" size="sm" asChild className="hidden sm:flex border-slate-200">
                             <Link href={`/projects/${project.slug}`} target="_blank">
-                                <ExternalLink className="h-4 w-4 mr-2" /> Preview Live
+                                <ExternalLink className="h-3.5 w-3.5 mr-2 text-slate-500" /> Public
                             </Link>
                         </Button>
-                        <Button size="sm" asChild>
+                        <Button size="sm" asChild className="shadow-sm">
                             <Link href={`/admin?edit=${project.slug}`}>
-                                <Edit className="h-4 w-4 mr-2" /> Edit Project
+                                <Edit className="h-3.5 w-3.5 mr-2" /> Edit
                             </Link>
                         </Button>
                     </div>
-                </Container>
+                </div>
             </div>
 
-            <Container className="py-8">
+            <div className="px-6 py-8 mx-auto max-w-6xl">
                 <div className="grid gap-8 lg:grid-cols-3">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">
@@ -128,7 +128,7 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
                         </div>
                     </div>
                 </div>
-            </Container>
+            </div>
         </div>
     )
 }

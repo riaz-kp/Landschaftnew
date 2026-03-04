@@ -14,7 +14,7 @@ import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "sonner"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
-import { MapPin, Image as ImageIcon, UploadCloud, Star, Eye, MoreVertical, Pencil, Trash2, Globe } from "lucide-react"
+import { MapPin, Image as ImageIcon, UploadCloud, Star, Eye, MoreVertical, Pencil, Trash2, Globe, Plus } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 
@@ -173,10 +173,18 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
 
     return (
         <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-4">
-                <div className="flex justify-between items-center bg-muted/30 border border-border/50 p-4 rounded-xl shadow-sm">
-                    <h2 className="text-xl font-semibold">Projects List</h2>
-                    <Button onClick={() => openEdit({ featured: false })} className="shadow-sm">Add New Project</Button>
+            <div className="lg:col-span-2 space-y-6">
+                <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                        <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Project List</h2>
+                    </div>
+                    {!isEditing && (
+                        <Button onClick={() => openEdit({ featured: false })} size="sm" className="shadow-sm gap-2">
+                            <Plus className="w-4 h-4" />
+                            Add Project
+                        </Button>
+                    )}
                 </div>
 
                 {initialProjects.length === 0 ? (
