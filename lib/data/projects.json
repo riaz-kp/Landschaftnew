@@ -1,34 +1,35 @@
 [
     {
-        "slug": "r",
-        "title": "rgdrg",
-        "location": "dfgdfg",
+        "slug": "j",
+        "title": "Jabar vilayil",
+        "location": "Malappuram",
         "category": "Residential",
         "area": "",
         "year": "2026",
-        "description": "dsgfg",
-        "featured": false,
-        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570503/landschaft/j24g8bhyyeqeox4x8buv.jpg",
+        "description": "",
+        "featured": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574554/landschaft_project_images/rnmaxfgiy42nudp1hqpt.jpg",
         "gallery": [
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570504/landschaft/zzjshbkgjqnts1ijccmg.jpg",
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570505/landschaft/x308kg5yirgf6izv945g.jpg",
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570506/landschaft/kzi0qcjgwvpqyzkinayv.jpg"
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574555/landschaft_project_images/blhhcwvgqyk4bwetou7a.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574556/landschaft_project_images/cukvqt4kmjy4hkvhrudb.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574557/landschaft_project_images/u0vhyxn9gadyklzjdne7.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574558/landschaft_project_images/pgqti5ixsvzz0v5wmara.jpg"
         ]
     },
     {
-        "slug": "d",
-        "title": "drgdrtrdtrdst",
-        "location": "rtertrtret",
+        "slug": "k",
+        "title": "Keyath Garden",
+        "location": "Calicut",
         "category": "Residential",
         "area": "",
         "year": "2026",
-        "description": "ertertretre",
+        "description": "",
         "featured": true,
-        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570689/landschaft_project_images/t8lgmrxqwemzaricxoc8.jpg",
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772607614/landschaft_project_images/dwjyllerrwslrext8qeg.jpg",
         "gallery": [
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570697/landschaft_project_images/xrfl1hzz0gczva547z88.jpg",
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570699/landschaft_project_images/uvxyviclb1xle3pallzs.jpg",
-            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772570700/landschaft_project_images/fzeprlmbt5ziakkezh4z.jpg"
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772607616/landschaft_project_images/wmnbg7hlsbg1dwxbfj44.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772607618/landschaft_project_images/emvyrds26lwjhzastm3u.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772607666/landschaft_project_images/qdurlh6qbycbvekkus7b.jpg"
         ]
     }
 ]

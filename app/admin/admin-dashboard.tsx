@@ -13,7 +13,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "sonner"
-import { MapPin, Image as ImageIcon, UploadCloud, Star, Eye } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
+import { MapPin, Image as ImageIcon, UploadCloud, Star, Eye, MoreVertical, Pencil, Trash2, Globe } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 
@@ -226,13 +227,40 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                                     )}
                                                 </CardDescription>
                                             </div>
-                                            <div className="flex flex-col items-center gap-1.5 shrink-0 pt-0.5">
+                                            <div className="flex items-center gap-2 pt-0.5">
                                                 <Switch
                                                     checked={project.featured || false}
                                                     onCheckedChange={(checked) => handleToggleFeatured(project, checked)}
-                                                    className="data-[state=checked]:bg-yellow-500 scale-[0.85] origin-top-right md:scale-100"
+                                                    className="data-[state=checked]:bg-yellow-500 scale-[0.80] md:scale-95"
                                                     title="Toggle Homepage Visibility"
                                                 />
+                                                <DropdownMenu>
+                                                    <DropdownMenuTrigger asChild>
+                                                        <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-muted/80">
+                                                            <MoreVertical className="h-4 w-4" />
+                                                            <span className="sr-only">Actions</span>
+                                                        </Button>
+                                                    </DropdownMenuTrigger>
+                                                    <DropdownMenuContent align="end" className="w-40">
+                                                        <DropdownMenuItem asChild>
+                                                            <Link href={`/admin/projects/${project.slug}`} className="cursor-pointer">
+                                                                <Eye className="mr-2 h-4 w-4" /> View Details
+                                                            </Link>
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuItem asChild>
+                                                            <Link href={`/projects/${project.slug}`} target="_blank" className="cursor-pointer">
+                                                                <Globe className="mr-2 h-4 w-4" /> Open Public
+                                                            </Link>
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuSeparator />
+                                                        <DropdownMenuItem onClick={() => openEdit(project)} className="cursor-pointer font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                                                            <Pencil className="mr-2 h-4 w-4" /> Edit Project
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuItem onClick={() => setProjectToDelete(project.slug)} className="cursor-pointer font-medium text-red-600 focus:text-red-600 hover:bg-red-50">
+                                                            <Trash2 className="mr-2 h-4 w-4" /> Delete Project
+                                                        </DropdownMenuItem>
+                                                    </DropdownMenuContent>
+                                                </DropdownMenu>
                                             </div>
                                         </div>
                                     </CardHeader>
@@ -242,14 +270,6 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                         </p>
                                     </CardContent>
                                 </div>
-                                <CardFooter className="px-5 py-4 border-t border-border/50 bg-muted/20 flex gap-3">
-                                    <Button variant="outline" size="sm" className="flex-1 shadow-sm" onClick={() => openEdit(project)}>
-                                        Edit
-                                    </Button>
-                                    <Button variant="destructive" size="sm" className="flex-1 shadow-sm bg-red-500 text-white hover:bg-red-600 transition-colors" onClick={() => setProjectToDelete(project.slug)}>
-                                        Delete
-                                    </Button>
-                                </CardFooter>
                             </Card>
                         ))}
                     </div>
