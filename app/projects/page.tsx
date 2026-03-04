@@ -12,9 +12,11 @@ const categories = ["All", "Residential", "Commercial"]
 export default function ProjectsPage() {
     const [filter, setFilter] = useState("All")
 
-    const filteredProjects = projects.filter(project =>
-        filter === "All" ? true : project.category === filter
-    )
+    const filteredProjects = projects.filter(project => {
+        const matchesCategory = filter === "All" ? true : project.category === filter
+        const isPublished = project.published !== false
+        return matchesCategory && isPublished
+    })
 
     return (
         <div className="flex flex-col min-h-screen">

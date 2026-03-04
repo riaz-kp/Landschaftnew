@@ -5,7 +5,7 @@ import { projects } from "@/lib/data/projects"
 import { Image as ImageIcon } from "lucide-react"
 
 export function FeaturedProjects() {
-    const featuredProjects = projects.filter(p => p.featured).slice(0, 3)
+    const featuredProjects = projects.filter(p => p.featured && p.published !== false).slice(0, 3)
 
     return (
         <section className="py-24 bg-secondary/20">

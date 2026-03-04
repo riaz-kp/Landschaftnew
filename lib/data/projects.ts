@@ -11,6 +11,7 @@ export interface Project {
     image: string
     gallery: string[]
     featured?: boolean
+    published?: boolean
 }
 
 export const projects: Project[] = projectsData as Project[]

@@ -16,16 +16,18 @@ interface PageProps {
 // If using Next 15, we need to await params.
 
 export async function generateStaticParams() {
-    return projects.map((project) => ({
-        slug: project.slug,
-    }))
+    return projects
+        .filter(p => p.published !== false)
+        .map((project) => ({
+            slug: project.slug,
+        }))
 }
 
 export default async function ProjectPage({ params }: PageProps) {
     const { slug } = await params
     const project = projects.find((p) => p.slug === slug)
 
-    if (!project) {
+    if (!project || project.published === false) {
         notFound()
     }
 

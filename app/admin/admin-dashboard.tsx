@@ -126,6 +126,7 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                 year: currentProject.year || new Date().getFullYear().toString(),
                 description: currentProject.description || "",
                 featured: currentProject.featured || false,
+                published: currentProject.published ?? true,
                 image: finalCoverImage,
                 gallery: finalGallery
             }
@@ -157,7 +158,17 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
         if (p) {
             setCurrentProject({ ...p })
         } else {
-            setCurrentProject({ category: "Residential", gallery: [], featured: false }) // Defaults
+            setCurrentProject({ category: "Residential", gallery: [], featured: false, published: true }) // Defaults
+        }
+    }
+
+    const handleTogglePublished = async (project: Project, published: boolean) => {
+        try {
+            await updateProject({ ...project, published })
+            toast.success(`Project ${published ? 'listed' : 'unlisted'} successfully`)
+            router.refresh()
+        } catch (error) {
+            toast.error("Failed to update project status")
         }
     }
 
@@ -241,6 +252,12 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                                     onCheckedChange={(checked) => handleToggleFeatured(project, checked)}
                                                     className="data-[state=checked]:bg-yellow-500 scale-[0.80] md:scale-95"
                                                     title="Toggle Homepage Visibility"
+                                                />
+                                                <Switch
+                                                    checked={project.published ?? true}
+                                                    onCheckedChange={(checked) => handleTogglePublished(project, checked)}
+                                                    className="data-[state=checked]:bg-emerald-500 scale-[0.80] md:scale-95"
+                                                    title="Toggle Project Visibility"
                                                 />
                                                 <DropdownMenu>
                                                     <DropdownMenuTrigger asChild>
@@ -345,6 +362,22 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                                     </label>
                                     <p className="text-[12px] text-muted-foreground">
                                         Turn this on to display this project in the featured section.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center space-x-2 border p-3 rounded-md bg-background/50 border-input">
+                                <Switch
+                                    id="published-mode"
+                                    checked={currentProject.published ?? true}
+                                    onCheckedChange={(checked) => setCurrentProject(prev => ({ ...prev, published: checked }))}
+                                />
+                                <div className="space-y-0.5">
+                                    <label htmlFor="published-mode" className="text-sm font-medium leading-none cursor-pointer">
+                                        Listed (Public)
+                                    </label>
+                                    <p className="text-[12px] text-muted-foreground">
+                                        If off, this project will not be visible on the public website.
                                     </p>
                                 </div>
                             </div>
