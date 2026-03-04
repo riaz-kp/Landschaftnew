@@ -40,8 +40,8 @@
         "area": "",
         "year": "2026",
         "description": "",
-        "featured": true,
-        "published": false,
+        "featured": false,
+        "published": true,
         "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772614829/landschaft_project_images/n0mbzzvtn7u4ivrk4uik.jpg",
         "gallery": [
             "https://res.cloudinary.com/dnsmrborw/image/upload/v1772620175/landschaft_project_images/d7ox1tsxw7ruutwzikhn.jpg"

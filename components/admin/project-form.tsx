@@ -26,7 +26,7 @@ function ImageDropzone({ onDrop, onRemove, accept, multiple, label, currentImage
                     {isDragActive ? "Drop files here..." : "Click to upload or drag and drop"}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
-                    SVG, PNG, JPG or GIF
+                    SVG, PNG, JPG or GIF (Max 2MB)
                 </p>
             </div>
             {currentImages && currentImages.length > 0 && (
