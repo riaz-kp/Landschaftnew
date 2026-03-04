@@ -20,13 +20,10 @@ export default async function AdminPage() {
     const commercialCount = projects.filter(p => p.category === "Commercial").length
 
     return (
-        <div className="p-6 md:p-8 space-y-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-8">
+        <div className="p-6 md:p-8 space-y-4">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
                 <div>
                     <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Project Management</h1>
-                    <p className="mt-2 text-slate-500 max-w-2xl text-lg">
-                        Curate your professional portfolio. Manage details, gallery, and visibility.
-                    </p>
                 </div>
             </div>
 

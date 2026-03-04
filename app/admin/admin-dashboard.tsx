@@ -172,9 +172,9 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
     }
 
     return (
-        <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-6">
-                <div className="flex items-center justify-between mb-2">
+        <div className="grid gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-4">
+                <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Project List</h2>
