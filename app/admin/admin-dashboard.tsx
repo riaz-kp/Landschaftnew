@@ -9,13 +9,24 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Switch } from "@/components/ui/switch"
 import { toast } from "sonner"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
-import { MapPin, Image as ImageIcon, Star, Eye, MoreVertical, Pencil, Trash2, Globe, Plus } from "lucide-react"
+import { MapPin, Image as ImageIcon, Star, Eye, MoreVertical, Pencil, Trash2, Globe, Plus, Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 
 export function AdminDashboard({ initialProjects }: { initialProjects: Project[] }) {
     const router = useRouter()
     const [projectToDelete, setProjectToDelete] = useState<string | null>(null)
+    const [searchTerm, setSearchTerm] = useState("")
+
+    const filteredProjects = initialProjects.filter(project => {
+        const query = searchTerm.toLowerCase()
+        return (
+            project.title.toLowerCase().includes(query) ||
+            project.location.toLowerCase().includes(query) ||
+            project.category.toLowerCase().includes(query)
+        )
+    })
 
     const handleTogglePublished = async (project: Project, published: boolean) => {
         try {
@@ -38,27 +49,39 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
     }
 
     return (
-        <div className="space-y-4">
-            <div className="flex items-center justify-between">
+        <div className="space-y-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Project List</h2>
                 </div>
-                <Button asChild size="sm" className="shadow-sm gap-2">
-                    <Link href="/admin/projects/new">
-                        <Plus className="w-4 h-4" />
-                        Add Project
-                    </Link>
-                </Button>
+
+                <div className="flex flex-1 items-center gap-4 max-w-2xl">
+                    <div className="relative flex-1">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                            placeholder="Search projects by title, location or category..."
+                            className="pl-10 h-10 bg-background/50 border-border/50 focus-visible:ring-primary/20 transition-all"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+                    <Button asChild size="sm" className="shadow-sm gap-2 h-10 px-4 shrink-0">
+                        <Link href="/admin/projects/new">
+                            <Plus className="w-4 h-4" />
+                            Add Project
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
-            {initialProjects.length === 0 ? (
-                <div className="p-8 text-center text-muted-foreground border border-dashed rounded-xl">
-                    No projects found. Add one to get started.
+            {filteredProjects.length === 0 ? (
+                <div className="p-12 text-center text-muted-foreground border border-dashed rounded-xl bg-muted/5">
+                    {searchTerm ? `No projects matching "${searchTerm}"` : "No projects found. Add one to get started."}
                 </div>
             ) : (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {initialProjects.map(project => (
+                    {filteredProjects.map(project => (
                         <Card key={project.slug} className="flex flex-col justify-between overflow-hidden transition-all hover:shadow-md border-border/50 bg-background/50">
                             <div>
                                 <Link href={`/admin/projects/${project.slug}`} className="block group/image">
