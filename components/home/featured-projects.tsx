@@ -5,7 +5,7 @@ import { projects } from "@/lib/data/projects"
 import { Image as ImageIcon } from "lucide-react"
 
 export function FeaturedProjects() {
-    const featuredProjects = projects.filter(p => p.featured && p.published !== false).slice(0, 3)
+    const featuredProjects = projects.filter(p => p.featured && p.published !== false)
 
     return (
         <section className="py-24 bg-secondary/20">
@@ -22,7 +22,7 @@ export function FeaturedProjects() {
                             </Button>
                         </div>
 
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                             {featuredProjects.map((project) => (
                                 <Link key={project.slug} href={`/projects/${project.slug}`} className="group block">
                                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">

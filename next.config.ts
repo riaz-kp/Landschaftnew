@@ -6,13 +6,13 @@ const nextConfig: NextConfig = {
   // Try covering both top-level and experimental for maximum compatibility
   // @ts-ignore
   serverActions: {
-    bodySizeLimit: '10mb',
+    bodySizeLimit: '2mb',
   },
 
   experimental: {
     // @ts-ignore
     serverActions: {
-      bodySizeLimit: '10mb',
+      bodySizeLimit: '2mb',
     },
   },
 
