@@ -1,19 +1,11 @@
 import { Suspense } from "react"
-import fs from "fs"
-import path from "path"
 import { CareerDashboard } from "./career-dashboard"
-import { Career } from "@/lib/data/careers"
+import { getCareers } from "@/lib/data/careers"
 import { Card, CardContent } from "@/components/ui/card"
 import { Briefcase, UserPlus, FileText } from "lucide-react"
 
 export default async function CareersAdminPage() {
-    const dataFilePath = path.join(process.cwd(), "lib", "data", "careers.json")
-    let careers: Career[] = []
-
-    if (fs.existsSync(dataFilePath)) {
-        const fileContents = fs.readFileSync(dataFilePath, "utf8")
-        careers = JSON.parse(fileContents)
-    }
+    const careers = await getCareers()
 
     const liveCount = careers.filter(c => c.published).length
     const draftCount = careers.length - liveCount
@@ -78,4 +70,3 @@ export default async function CareersAdminPage() {
         </div>
     )
 }
-

@@ -128,7 +128,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 {/* Mobile Header */}
                 <header className="lg:hidden h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
-                    <span className="font-bold tracking-tight text-primary">LANDSCHAFT</span>
+                    <Link href="/" className="flex items-center gap-2.5">
+                        <Image
+                            src="/logo.svg"
+                            alt="Landschaft Logo"
+                            width={24}
+                            height={24}
+                            className="object-contain"
+                        />
+                        <span className="font-bold tracking-tight text-primary text-lg uppercase">LANDSCHAFT</span>
+                    </Link>
                     <button
                         onClick={() => setIsSidebarOpen(true)}
                         className="p-2 -mr-2 text-slate-600 focus:outline-none hover:bg-slate-50 rounded-lg"

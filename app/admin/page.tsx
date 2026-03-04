@@ -1,19 +1,11 @@
 import { Suspense } from "react"
-import fs from "fs"
-import path from "path"
 import { AdminDashboard } from "./admin-dashboard"
-import { Project } from "@/lib/data/projects"
+import { getProjects } from "@/lib/data/projects"
 import { Card, CardContent } from "@/components/ui/card"
 import { LayoutGrid, Home, Tag } from "lucide-react"
 
 export default async function AdminPage() {
-    const dataFilePath = path.join(process.cwd(), "lib", "data", "projects.json")
-    let projects: Project[] = []
-
-    if (fs.existsSync(dataFilePath)) {
-        const fileContents = fs.readFileSync(dataFilePath, "utf8")
-        projects = JSON.parse(fileContents)
-    }
+    const projects = await getProjects()
 
     const featuredCount = projects.filter(p => p.featured).length
     const residentialCount = projects.filter(p => p.category === "Residential").length

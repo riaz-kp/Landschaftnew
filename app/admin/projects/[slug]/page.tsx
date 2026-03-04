@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Edit, ExternalLink, MapPin, Tag } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
-import { projects } from "@/lib/data/projects"
+import { getProjectBySlug } from "@/lib/data/projects"
 import { Badge } from "@/components/ui/badge"
 
 interface PageProps {
@@ -12,10 +12,9 @@ interface PageProps {
     }>
 }
 
-
 export default async function AdminProjectDetailsPage({ params }: PageProps) {
     const { slug } = await params
-    const project = projects.find((p) => p.slug === slug)
+    const project = await getProjectBySlug(slug)
 
     if (!project) {
         notFound()

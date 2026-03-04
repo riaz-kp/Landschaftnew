@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import { ProjectForm } from "@/components/admin/project-form"
 import { Button } from "@/components/ui/button"
-import { projects } from "@/lib/data/projects"
+import { getProjectBySlug } from "@/lib/data/projects"
 
 interface PageProps {
     params: Promise<{
@@ -11,10 +11,9 @@ interface PageProps {
     }>
 }
 
-
 export default async function EditProjectPage({ params }: PageProps) {
     const { slug } = await params
-    const project = projects.find((p) => p.slug === slug)
+    const project = await getProjectBySlug(slug)
 
     if (!project) {
         notFound()

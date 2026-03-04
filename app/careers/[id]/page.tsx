@@ -2,22 +2,13 @@ import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { MapPin, Clock, Briefcase, ClipboardCheck, ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import fs from "fs"
-import path from "path"
-import { Career } from "@/lib/data/careers"
+import { getCareerById } from "@/lib/data/careers"
 import { ApplicationForm } from "@/components/careers/application-form"
 import { notFound } from "next/navigation"
 
 export default async function CareerPostPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
-    const dataFilePath = path.join(process.cwd(), "lib", "data", "careers.json")
-    let career: Career | null = null
-
-    if (fs.existsSync(dataFilePath)) {
-        const fileContents = fs.readFileSync(dataFilePath, "utf8")
-        const careers = JSON.parse(fileContents)
-        career = careers.find((c: Career) => c.id === id)
-    }
+    const career = await getCareerById(id)
 
     if (!career || !career.published) {
         notFound()
