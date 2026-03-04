@@ -18,6 +18,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
 import Image from "next/image"
+import { logout } from "@/app/actions/auth"
+import { useRouter } from "next/navigation"
 
 interface SidebarItem {
     name: string
@@ -115,7 +117,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                     <p className="text-xs font-semibold text-slate-900 truncate">Admin User</p>
                                     <p className="text-[10px] text-slate-500 truncate italic">Studio Manager</p>
                                 </div>
-                                <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400 hover:text-red-500">
+                                <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-8 w-8 text-slate-400 hover:text-red-500"
+                                    onClick={async () => {
+                                        await logout();
+                                    }}
+                                >
                                     <LogOut className="w-4 h-4" />
                                 </Button>
                             </div>
