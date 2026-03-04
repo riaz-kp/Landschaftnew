@@ -2,18 +2,11 @@ import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { MapPin, Clock, Briefcase, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import fs from "fs"
-import path from "path"
-import { Career } from "@/lib/data/careers"
+import { getCareers } from "@/lib/data/careers"
 
 export default async function CareersPage() {
-    const dataFilePath = path.join(process.cwd(), "lib", "data", "careers.json")
-    let careers: Career[] = []
-
-    if (fs.existsSync(dataFilePath)) {
-        const fileContents = fs.readFileSync(dataFilePath, "utf8")
-        careers = JSON.parse(fileContents).filter((c: Career) => c.published)
-    }
+    const careers = await getCareers()
+    const publishedCareers = careers.filter(c => c.published)
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -31,8 +24,8 @@ export default async function CareersPage() {
             <section className="pb-24">
                 <Container className="max-w-5xl">
                     <div className="grid gap-8">
-                        {careers.length > 0 ? (
-                            careers.map((career) => (
+                        {publishedCareers.length > 0 ? (
+                            publishedCareers.map((career) => (
                                 <div
                                     key={career.id}
                                     className="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-slate-100"

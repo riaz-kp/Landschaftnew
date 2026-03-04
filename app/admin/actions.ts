@@ -1,45 +1,30 @@
 "use server"
 
-import fs from "fs"
-import path from "path"
 import { revalidatePath } from "next/cache"
-import { Project } from "@/lib/data/projects"
+import { Project as ProjectType } from "@/lib/data/projects"
+import dbConnect from "@/lib/mongodb"
+import ProjectModel from "@/lib/models/Project"
 import cloudinary from "@/lib/cloudinary"
 
-const dataFilePath = path.join(process.cwd(), "lib", "data", "projects.json")
-
-function getProjects(): Project[] {
-    if (!fs.existsSync(dataFilePath)) return []
-    const fileContents = fs.readFileSync(dataFilePath, "utf8")
-    return JSON.parse(fileContents)
-}
-
-function saveProjects(projects: Project[]) {
-    fs.writeFileSync(dataFilePath, JSON.stringify(projects, null, 4))
-}
-
-export async function addProject(project: Project) {
-    const projects = getProjects()
-    projects.push(project)
-    saveProjects(projects)
+export async function addProject(project: ProjectType) {
+    await dbConnect()
+    await ProjectModel.create(project)
     revalidatePath("/projects")
     revalidatePath("/admin")
     return { success: true }
 }
 
 export async function deleteProject(slug: string) {
-    let projects = getProjects()
-    projects = projects.filter(p => p.slug !== slug)
-    saveProjects(projects)
+    await dbConnect()
+    await ProjectModel.deleteOne({ slug })
     revalidatePath("/projects")
     revalidatePath("/admin")
     return { success: true }
 }
 
-export async function updateProject(updatedProject: Project) {
-    let projects = getProjects()
-    projects = projects.map(p => p.slug === updatedProject.slug ? updatedProject : p)
-    saveProjects(projects)
+export async function updateProject(updatedProject: ProjectType) {
+    await dbConnect()
+    await ProjectModel.findOneAndUpdate({ slug: updatedProject.slug }, updatedProject)
     revalidatePath("/projects")
     revalidatePath("/admin")
     return { success: true }

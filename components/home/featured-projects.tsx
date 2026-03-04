@@ -1,10 +1,11 @@
 import Link from "next/link"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
-import { projects } from "@/lib/data/projects"
+import { getProjects } from "@/lib/data/projects"
 import { Image as ImageIcon } from "lucide-react"
 
-export function FeaturedProjects() {
+export async function FeaturedProjects() {
+    const projects = await getProjects()
     const featuredProjects = projects.filter(p => p.featured && p.published !== false)
 
     return (
