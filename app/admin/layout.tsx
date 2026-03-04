@@ -17,9 +17,18 @@ import {
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
-const sidebarItems = [
+import Image from "next/image"
+
+interface SidebarItem {
+    name: string
+    href: string
+    icon: any // For simplicity with Lucide icons
+    badge?: string
+}
+
+const sidebarItems: SidebarItem[] = [
     { name: "Projects", href: "/admin", icon: LayoutDashboard },
-    { name: "Careers", href: "/admin/careers", icon: Briefcase, badge: "Soon" },
+    { name: "Careers", href: "/admin/careers", icon: Briefcase },
     { name: "Settings", href: "/admin/settings", icon: Settings },
 ]
 
@@ -28,7 +37,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
     return (
-        <div className="flex h-screen bg-slate-50/50 overflow-hidden">
+        <div className="flex h-screen bg-slate-50/50 overflow-hidden text-slate-900">
             {/* Mobile Sidebar Overlay */}
             {isSidebarOpen && (
                 <div
@@ -45,11 +54,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <div className="flex flex-col h-full">
                     {/* Sidebar Header */}
                     <div className="h-16 flex items-center px-6 border-b border-slate-100">
-                        <Link href="/" className="flex items-center gap-2 group">
-                            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg group-hover:rotate-6 transition-transform">
-                                L
-                            </div>
-                            <span className="font-bold tracking-tight text-slate-900">LANDSCHAFT</span>
+                        <Link href="/" className="flex items-center gap-3">
+                            <Image
+                                src="/logo.svg"
+                                alt="Landschaft Logo"
+                                width={32}
+                                height={32}
+                                className="object-contain"
+                            />
+                            <span className="font-black tracking-tighter text-xl text-slate-900 uppercase">LANDSCHAFT</span>
                         </Link>
                     </div>
 

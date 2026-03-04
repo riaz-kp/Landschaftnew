@@ -1,0 +1,18 @@
+[
+    {
+        "id": "landscape-architect-01",
+        "title": "Junior Landscape Architect",
+        "department": "Design Studio",
+        "type": "Full-time",
+        "location": "Kondotty, Kerala",
+        "description": "We are seeking a passionate Junior Landscape Architect to join our design-led studio. You will work closely with our founders on high-end residential and commercial projects.",
+        "requirements": [
+            "Bachelor's degree in Architecture or Landscape Architecture",
+            "Proficiency in AutoCAD, SketchUp, and Lumion",
+            "Strong understanding of tropical plants and ecology",
+            "Good communication skills"
+        ],
+        "published": true,
+        "createdAt": "2024-03-01T10:00:00Z"
+    }
+]

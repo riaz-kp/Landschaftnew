@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data/projects"
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
+
 
 export default async function EditProjectPage({ params }: PageProps) {
     const { slug } = await params

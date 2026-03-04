@@ -1,46 +1,81 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Briefcase, Info, Plus } from "lucide-react"
+import { Suspense } from "react"
+import fs from "fs"
+import path from "path"
+import { CareerDashboard } from "./career-dashboard"
+import { Career } from "@/lib/data/careers"
+import { Card, CardContent } from "@/components/ui/card"
+import { Briefcase, UserPlus, FileText } from "lucide-react"
 
-export default function CareersAdminPage() {
+export default async function CareersAdminPage() {
+    const dataFilePath = path.join(process.cwd(), "lib", "data", "careers.json")
+    let careers: Career[] = []
+
+    if (fs.existsSync(dataFilePath)) {
+        const fileContents = fs.readFileSync(dataFilePath, "utf8")
+        careers = JSON.parse(fileContents)
+    }
+
+    const liveCount = careers.filter(c => c.published).length
+    const draftCount = careers.length - liveCount
+
     return (
-        <div className="p-6 md:p-8 space-y-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-8">
-                <div>
-                    <h1 className="text-3xl font-bold text-slate-900">Careers & Openings</h1>
-                    <p className="mt-2 text-slate-500 max-w-2xl">
-                        Manage job listings and applications for your studio. (This feature is currently under development)
-                    </p>
-                </div>
-                <Button className="shrink-0 gap-2 opacity-50 cursor-not-allowed">
-                    <Plus className="w-4 h-4" />
-                    New Position
-                </Button>
-            </div>
-
-            <div className="grid gap-6">
-                <Card className="border-dashed bg-slate-50/50">
-                    <CardContent className="flex flex-col items-center justify-center p-12 text-center">
-                        <div className="w-16 h-16 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center mb-4">
-                            <Briefcase className="w-8 h-8 text-slate-300" />
-                        </div>
-                        <h3 className="text-lg font-semibold text-slate-900">Feature Coming Soon</h3>
-                        <p className="text-slate-500 max-w-sm mt-1">
-                            Soon you'll be able to post job openings, internships, and manage applications directly from here.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <div className="flex items-start gap-3 p-4 bg-blue-50 border border-blue-100 rounded-xl text-blue-700">
-                    <Info className="w-5 h-5 shrink-0" />
-                    <div className="text-sm">
-                        <p className="font-semibold">Note to Developer</p>
-                        <p className="mt-1 opacity-90">
-                            The careers module requires a separate data structure and possibly a backend integration for resume storage. This placeholder is ready for your future implementation.
-                        </p>
-                    </div>
+        <div className="p-6 md:p-10 space-y-8 max-w-[1400px] mx-auto min-h-screen">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
+                <div className="space-y-1">
+                    <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">Careers & Opportunities</h1>
+                    <p className="text-slate-500 font-medium">Manage job openings and studio growth.</p>
                 </div>
             </div>
+
+            {/* Stats Overview */}
+            <div className="grid gap-6 md:grid-cols-3">
+                <div className="bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-indigo-200 to-indigo-100 shadow-sm transition-all hover:shadow-md duration-500">
+                    <Card className="bg-white/95 border-none rounded-[23px] shadow-none h-full">
+                        <CardContent className="p-6 flex items-center gap-5">
+                            <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-100">
+                                <Briefcase className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Total Posts</p>
+                                <p className="text-3xl font-black text-slate-900 leading-none">{careers.length}</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <div className="bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-emerald-200 to-emerald-100 shadow-sm transition-all hover:shadow-md duration-500">
+                    <Card className="bg-white/95 border-none rounded-[23px] shadow-none h-full">
+                        <CardContent className="p-6 flex items-center gap-5">
+                            <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center text-white shadow-lg shadow-emerald-100">
+                                <UserPlus className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Live Opening</p>
+                                <p className="text-3xl font-black text-slate-900 leading-none">{liveCount}</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <div className="bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-slate-200 to-slate-100 shadow-sm transition-all hover:shadow-md duration-500">
+                    <Card className="bg-white/95 border-none rounded-[23px] shadow-none h-full">
+                        <CardContent className="p-6 flex items-center gap-5">
+                            <div className="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg shadow-slate-200">
+                                <FileText className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Drafts</p>
+                                <p className="text-3xl font-black text-slate-900 leading-none">{draftCount}</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+
+            <Suspense fallback={<div className="flex items-center justify-center p-24 opacity-50 italic font-medium">Loading positions...</div>}>
+                <CareerDashboard initialCareers={careers} />
+            </Suspense>
         </div>
     )
 }
+

@@ -7,10 +7,11 @@ import { projects } from "@/lib/data/projects"
 import { Badge } from "@/components/ui/badge"
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
+
 
 export default async function AdminProjectDetailsPage({ params }: PageProps) {
     const { slug } = await params

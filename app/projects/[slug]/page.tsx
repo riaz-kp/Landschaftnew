@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/data/projects"
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
+
 
 // Ensure correct type for params in Next.js 15+ if needed, but standard specificiation often works.
 // Note: In Next.js 15, params is a Promise. But let's assume standard 14 conventions for now.
