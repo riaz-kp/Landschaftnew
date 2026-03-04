@@ -45,7 +45,7 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
                             </Link>
                         </Button>
                         <Button size="sm" asChild className="shadow-sm">
-                            <Link href={`/admin?edit=${project.slug}`}>
+                            <Link href={`/admin/projects/${project.slug}/edit`}>
                                 <Edit className="h-3.5 w-3.5 mr-2" /> Edit
                             </Link>
                         </Button>
