@@ -5,8 +5,14 @@ import { Project as ProjectType } from "@/lib/data/projects"
 import dbConnect from "@/lib/mongodb"
 import ProjectModel from "@/lib/models/Project"
 import cloudinary from "@/lib/cloudinary"
+import { getSession } from "@/lib/auth"
+import { redirect } from "next/navigation"
 
 export async function addProject(project: ProjectType) {
+    const session = await getSession()
+    if (!session) {
+        throw new Error("Unauthorized")
+    }
     await dbConnect()
     await ProjectModel.create(project)
     revalidatePath("/projects")
@@ -15,6 +21,10 @@ export async function addProject(project: ProjectType) {
 }
 
 export async function deleteProject(slug: string) {
+    const session = await getSession()
+    if (!session) {
+        throw new Error("Unauthorized")
+    }
     await dbConnect()
     await ProjectModel.deleteOne({ slug })
     revalidatePath("/projects")
@@ -23,6 +33,10 @@ export async function deleteProject(slug: string) {
 }
 
 export async function updateProject(updatedProject: ProjectType) {
+    const session = await getSession()
+    if (!session) {
+        throw new Error("Unauthorized")
+    }
     await dbConnect()
     await ProjectModel.findOneAndUpdate({ slug: updatedProject.slug }, updatedProject)
     revalidatePath("/projects")
@@ -31,6 +45,10 @@ export async function updateProject(updatedProject: ProjectType) {
 }
 
 export async function uploadImage(formData: FormData) {
+    const session = await getSession()
+    if (!session) {
+        throw new Error("Unauthorized")
+    }
     const file = formData.get("file") as File;
     if (!file) return null;
 
