@@ -15,21 +15,21 @@ export function Hero() {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/40" /> {/* Overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 pointer-events-none" />
             </div>
 
             <Container className="relative z-10 text-center text-white">
-                <h1 className="mx-auto max-w-4xl text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl drop-shadow-md">
+                <h1 className="mx-auto max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl drop-shadow-xl text-balance">
                     Crafting Living Landscapes That Endure
                 </h1>
                 <p className="mx-auto mt-6 max-w-2xl text-lg font-light tracking-wide sm:text-xl text-white/90 drop-shadow-sm">
                     Environmental Planning • Landscape Design • Execution
                 </p>
                 <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-white text-primary hover:bg-white/90" asChild>
+                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-white text-primary hover:bg-white/90 shadow-lg hover:scale-105 transition-all duration-300" asChild>
                         <Link href="/projects">View Projects</Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-white text-white hover:bg-white hover:text-primary bg-transparent backdrop-blur-sm" asChild>
+                    <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-white text-white hover:bg-white hover:text-primary bg-transparent backdrop-blur-sm shadow-lg hover:scale-105 transition-all duration-300" asChild>
                         <Link href="/contact">Book Consultation</Link>
                     </Button>
                 </div>
