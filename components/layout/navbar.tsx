@@ -17,7 +17,7 @@ const navItems = [
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Process", href: "/process" },
-    { name: "Team", href: "/team" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
 ]
 
@@ -46,6 +46,8 @@ export function Navbar() {
     React.useEffect(() => {
         setIsOpen(false)
     }, [pathname])
+
+    if (pathname?.startsWith("/admin")) return null
 
     return (
         <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">

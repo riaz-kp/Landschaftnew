@@ -1,0 +1,71 @@
+[
+    {
+        "slug": "j",
+        "title": "Jabar vilayil",
+        "location": "Malappuram",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "",
+        "featured": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574554/landschaft_project_images/rnmaxfgiy42nudp1hqpt.jpg",
+        "gallery": [
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574555/landschaft_project_images/blhhcwvgqyk4bwetou7a.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574556/landschaft_project_images/cukvqt4kmjy4hkvhrudb.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574557/landschaft_project_images/u0vhyxn9gadyklzjdne7.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772574558/landschaft_project_images/pgqti5ixsvzz0v5wmara.jpg"
+        ]
+    },
+    {
+        "slug": "kayeth-garden",
+        "title": "Kayeth Garden",
+        "location": "Calicut",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "",
+        "featured": true,
+        "published": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640241/landschaft_project_images/ipwlrbcwluasapa0cnae.jpg",
+        "gallery": [
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640243/landschaft_project_images/gnuuxidbrs8eldcfutou.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640244/landschaft_project_images/iygp6pgbujgxr8dwq5ar.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640246/landschaft_project_images/szvnlr7h9objdx4un0qs.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640247/landschaft_project_images/i1ktp2b8hr1bws7zuyqz.jpg"
+        ]
+    },
+    {
+        "slug": "azeez-vilayil",
+        "title": "Azeez vilayil",
+        "location": "Malappuram",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "",
+        "featured": true,
+        "published": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640377/landschaft_project_images/dydgisnuu6smq0yzjtam.jpg",
+        "gallery": [
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640379/landschaft_project_images/zmqfbevm3u3yex2lxugj.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640380/landschaft_project_images/uiwxlpnduhx2xr7lppxo.jpg"
+        ]
+    },
+    {
+        "slug": "ashraf-olamathil",
+        "title": "Ashraf Olamathil",
+        "location": "Malappuram",
+        "category": "Residential",
+        "area": "",
+        "year": "2026",
+        "description": "",
+        "featured": true,
+        "published": true,
+        "image": "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640536/landschaft_project_images/tawu8hpa0bkixvttl7fq.jpg",
+        "gallery": [
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640540/landschaft_project_images/b7lsms9emxskemtodx4b.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640541/landschaft_project_images/aboxyxikirgbfumwcdct.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640543/landschaft_project_images/iafbnta4cyxnowopvnam.jpg",
+            "https://res.cloudinary.com/dnsmrborw/image/upload/v1772640544/landschaft_project_images/kpjtdttljkydhwhoitq3.jpg"
+        ]
+    }
+]

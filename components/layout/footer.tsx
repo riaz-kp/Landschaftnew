@@ -1,7 +1,13 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Container } from "@/components/layout/container"
 
 export function Footer() {
+    const pathname = usePathname()
+    if (pathname?.startsWith("/admin")) return null
+
     return (
         <footer className="border-t bg-secondary/30 py-12 md:py-16">
             <Container>
@@ -22,6 +28,7 @@ export function Footer() {
                             <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
                             <Link href="/projects" className="hover:text-primary transition-colors">Projects</Link>
                             <Link href="/process" className="hover:text-primary transition-colors">Process</Link>
+                            <Link href="/careers" className="hover:text-primary transition-colors">Careers</Link>
                         </nav>
                     </div>
 

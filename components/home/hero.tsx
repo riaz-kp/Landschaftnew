@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
@@ -5,9 +6,17 @@ import { Container } from "@/components/layout/container"
 export function Hero() {
     return (
         <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-muted/20">
-            {/* Background Image Placeholder */}
-            <div className="absolute inset-0 z-0 bg-[url('/images/hero-placeholder.jpg')] bg-cover bg-center opacity-90" />
-            <div className="absolute inset-0 z-0 bg-black/20" /> {/* Overlay for text readability */}
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="https://res.cloudinary.com/dnsmrborw/image/upload/v1772708486/WhatsApp_Image_2026-01-07_at_19.36.18_vziqqg.jpg"
+                    alt="Landschaft Hero"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/40" /> {/* Overlay for readability */}
+            </div>
 
             <Container className="relative z-10 text-center text-white">
                 <h1 className="mx-auto max-w-4xl text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl drop-shadow-md">
