@@ -25,24 +25,25 @@ export async function FeaturedProjects() {
 
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                             {featuredProjects.map((project) => (
-                                <Link key={project.slug} href={`/projects/${project.slug}`} className="group block">
-                                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
+                                <Link key={project.slug} href={`/projects/${project.slug}`} className="group block h-full">
+                                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-200 transition-transform duration-500 group-hover:shadow-2xl">
                                         {project.image && project.image !== "/placeholder.svg" ? (
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
-                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
                                         ) : (
-                                            <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/50 text-lg font-light bg-muted">
+                                            <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/50 text-lg font-light bg-muted transition-transform duration-700 group-hover:scale-105">
                                                 <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
                                                 No Image
                                             </div>
                                         )}
+                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                                     </div>
-                                    <div className="mt-4">
-                                        <h3 className="text-lg font-medium text-foreground">{project.title}</h3>
-                                        <p className="text-sm text-muted-foreground">{project.location} • {project.category}</p>
+                                    <div className="mt-5 mb-2">
+                                        <h3 className="text-xl font-medium text-foreground transition-colors group-hover:text-primary">{project.title}</h3>
+                                        <p className="mt-1 text-sm text-muted-foreground">{project.location} • {project.category}</p>
                                     </div>
                                 </Link>
                             ))}

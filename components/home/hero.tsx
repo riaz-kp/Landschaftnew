@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/container"
 
 export function Hero() {
     return (
-        <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-muted/20">
+        <section className="relative flex min-h-[95vh] flex-col justify-center overflow-hidden bg-black">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -15,21 +15,21 @@ export function Hero() {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/40" /> {/* Overlay for readability */}
+                <div className="absolute inset-0 bg-black/70" />
             </div>
 
             <Container className="relative z-10 text-center text-white">
-                <h1 className="mx-auto max-w-4xl text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl drop-shadow-md">
+                <h1 className="mx-auto max-w-5xl text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl text-balance">
                     Crafting Living Landscapes That Endure
                 </h1>
-                <p className="mx-auto mt-6 max-w-2xl text-lg font-light tracking-wide sm:text-xl text-white/90 drop-shadow-sm">
-                    Environmental Planning • Landscape Design • Execution
+                <p className="mx-auto mt-8 max-w-2xl text-xs sm:text-sm font-light uppercase tracking-[0.2em] text-white/70">
+                    Environmental Planning <span className="mx-2 opacity-50">•</span> Landscape Design <span className="mx-2 opacity-50">•</span> Execution
                 </p>
-                <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-white text-primary hover:bg-white/90" asChild>
+                <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+                    <Button size="lg" variant="outline" className="h-14 px-10 text-xs sm:text-sm font-medium uppercase tracking-wider rounded-full border-white/50 bg-transparent text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm" asChild>
                         <Link href="/projects">View Projects</Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-white text-white hover:bg-white hover:text-primary bg-transparent backdrop-blur-sm" asChild>
+                    <Button size="lg" variant="outline" className="h-14 px-10 text-xs sm:text-sm font-medium uppercase tracking-wider rounded-full border-white/30 bg-transparent text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm" asChild>
                         <Link href="/contact">Book Consultation</Link>
                     </Button>
                 </div>
