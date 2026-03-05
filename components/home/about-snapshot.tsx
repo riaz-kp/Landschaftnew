@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
@@ -6,11 +7,16 @@ export function AboutSnapshot() {
     return (
         <section className="py-24 bg-muted/30">
             <Container className="grid gap-12 md:grid-cols-2 items-center">
-                <div className="relative aspect-square md:aspect-[4/5] bg-neutral-200 rounded-lg overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 border border-primary/10 m-4 rounded-[inherit] transition-all duration-300 group-hover:m-2">
-                        <span className="font-light tracking-widest text-sm uppercase">Team / Studio</span>
-                    </div>
+                <div className="relative aspect-square md:aspect-[4/5] bg-neutral-100 rounded-lg overflow-hidden group">
+                    <Image
+                        src="https://res.cloudinary.com/dnsmrborw/image/upload/v1772708122/about-rooted-ecology_egleyi.jpg"
+                        alt="Rooted in Ecology, Driven by Design"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
                 <div className="flex flex-col gap-6">
                     <h2 className="text-3xl font-light text-foreground sm:text-4xl">
