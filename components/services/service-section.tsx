@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Container } from "@/components/layout/container"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
@@ -17,12 +18,15 @@ export function ServiceSection({ title, description, features, image, id, revers
             <Container>
                 <div className={cn("grid gap-12 lg:grid-cols-2 items-center", reversed ? "lg:grid-flow-row-dense" : "")}>
                     {/* Image Side */}
-                    <div className={cn("relative aspect-[4/3] bg-neutral-200 rounded-lg overflow-hidden", reversed ? "lg:col-start-2" : "")}>
-                        {/* Placeholder */}
-                        <div className="absolute inset-0 bg-neutral-300" />
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-lg">
-                            Image: {title}
-                        </div>
+                    <div className={cn("relative aspect-[4/3] bg-neutral-100 rounded-lg overflow-hidden group", reversed ? "lg:col-start-2" : "")}>
+                        <Image
+                            src={image}
+                            alt={title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300" />
                     </div>
 
                     {/* Content Side */}

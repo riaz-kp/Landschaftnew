@@ -7,42 +7,42 @@ const services = [
         title: "Design & Consulting",
         description: "Our design process is rooted in a deep understanding of the site's ecology and your lifestyle. We move from broad conceptual master planning to intricate planting details.",
         features: ["Site analysis & Ecology study", "Concept development", "Master planning", "Planting design", "Working drawings"],
-        image: "/images/design.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772709638/service-palnning_nobzig.jpg"
     },
     {
         id: "hardscape",
         title: "Hardscaping",
         description: "The backbone of your landscape. We use natural materials and precise craftsmanship to build enduring structures that define spaces and guide movement.",
         features: ["Patios & Terraces", "Pathways & Walkways", "Retaining walls", "Outdoor structures (Pergolas, Gazebos)"],
-        image: "/images/hardscape.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772710486/service-hardscapping_q9jxzm.png"
     },
     {
         id: "softscape",
         title: "Softscaping",
         description: "The living element. We curate plant palettes that thrive in the local climate, creating lush, resilient gardens that change beautifully with the seasons.",
         features: ["Native planting schemes", "Meadow gardens", "Ecological restoration", "Seasonal color design"],
-        image: "/images/softscape.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772710975/service-softscapping_bnyjfj.png"
     },
     {
         id: "water",
         title: "Water Features",
         description: "Water brings life, sound, and movement. From tranquil koi ponds to architectural fountains, we integrate water elements that cool the air and calm the mind.",
         features: ["Natural Ponds", "Swimming Pools", "Architectural Fountains", "Rain gardens & Bioswales"],
-        image: "/images/water.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772711311/service-water_aiqzm8.png"
     },
     {
         id: "irrigation",
         title: "Irrigation & Lighting",
         description: "Technical systems that ensure your garden's health and usability day and night. Smart, efficient, and subtle.",
         features: ["Water-efficient drip systems", "Smart controllers", "Subtle architectural lighting", "Path & Security lighting"],
-        image: "/images/irrigation.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772711590/service-light_kqzksi.png"
     },
     {
         id: "maintenance",
         title: "Maintenance",
         description: "A garden is never finished; it grows. Our skilled horticulture team provides ongoing care to ensure your landscape reaches its full potential.",
         features: ["Seasonal pruning & care", "Irrigation monitoring", "Plant health management", "Lawn care & aeration"],
-        image: "/images/maintenance.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772711826/service-monitoring_osq8o0.jpg"
     }
 ]
 
