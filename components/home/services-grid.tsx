@@ -3,12 +3,12 @@ import Link from "next/link"
 import { Container } from "@/components/layout/container"
 
 const services = [
-    { title: "Design & Consulting", description: "Master planning and site analysis.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_design_eb6qre.png" },
-    { title: "Hardscaping", description: "Patios, pathways, and structures.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_hardscaping_l38z4w.png" },
-    { title: "Softscaping", description: "Native planting and meadows.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_softscaping_slm1hx.png" },
-    { title: "Water Features", description: "Ponds, pools, and rain gardens.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_water_zeh7wa.png" },
-    { title: "Irrigation & Lighting", description: "Efficient systems and ambiance.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_irrigation_ochtmu.png" },
-    { title: "Maintenance", description: "Seasonal care and plant health.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_maintenence_sjkhmm.png" },
+    { id: "design", title: "Design & Consulting", description: "Master planning and site analysis.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_design_eb6qre.png" },
+    { id: "hardscape", title: "Hardscaping", description: "Patios, pathways, and structures.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_hardscaping_l38z4w.png" },
+    { id: "softscape", title: "Softscaping", description: "Native planting and meadows.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_softscaping_slm1hx.png" },
+    { id: "water", title: "Water Features", description: "Ponds, pools, and rain gardens.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_water_zeh7wa.png" },
+    { id: "irrigation", title: "Irrigation & Lighting", description: "Efficient systems and ambiance.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_irrigation_ochtmu.png" },
+    { id: "maintenance", title: "Maintenance", description: "Seasonal care and plant health.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_maintenence_sjkhmm.png" },
 ]
 
 export function ServicesGrid() {
@@ -29,7 +29,7 @@ export function ServicesGrid() {
                     {services.map((service) => (
                         <Link
                             key={service.title}
-                            href="/services"
+                            href={`/services#${service.id}`}
                             className="group relative flex flex-row items-center justify-between rounded-3xl bg-secondary/50 p-6 sm:p-8 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-4"
                         >
                             <div className="relative z-10 flex flex-col flex-1">
