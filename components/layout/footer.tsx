@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import NextImage from "next/image"
 import { usePathname } from "next/navigation"
 import { Container } from "@/components/layout/container"
 
@@ -9,60 +10,70 @@ export function Footer() {
     if (pathname?.startsWith("/admin")) return null
 
     return (
-        <footer className="border-t bg-secondary/30 pt-10 pb-6 md:py-16">
+        <footer className="bg-primary pt-10 pb-6 md:py-16 text-primary-foreground">
             <Container>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
-                        <Link href="/" className="text-xl font-bold tracking-tight text-primary">
-                            LANDSCHAFT
+                        <Link href="/" className="flex flex-col gap-6 group w-fit">
+                            <span
+                                className="text-xl font-bold tracking-[0.05em] transition-opacity group-hover:opacity-80"
+                                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                            >
+                                LANDSCHAFT
+                            </span>
+                            <div className="relative h-20 w-20 opacity-90 transition-opacity group-hover:opacity-100 brightness-110">
+                                <NextImage
+                                    src="/logo.svg"
+                                    alt="Landschaft Logo Icon"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </Link>
-                        <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                            Crafting living landscapes that endure. An environmental planning studio combining design precision with ecology.
-                        </p>
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                        <h3 className="font-semibold text-foreground">Navigation</h3>
-                        <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                            <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
-                            <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
-                            <Link href="/projects" className="hover:text-primary transition-colors">Projects</Link>
-                            <Link href="/process" className="hover:text-primary transition-colors">Process</Link>
-                            <Link href="/careers" className="hover:text-primary transition-colors">Careers</Link>
+                    <div className="flex flex-col gap-6">
+                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-xs">Navigation</h3>
+                        <nav className="flex flex-col gap-3 text-sm text-primary-foreground/70">
+                            <Link href="/about" className="hover:text-secondary transition-colors">About Us</Link>
+                            <Link href="/services" className="hover:text-secondary transition-colors">Services</Link>
+                            <Link href="/projects" className="hover:text-secondary transition-colors">Projects</Link>
+                            <Link href="/process" className="hover:text-secondary transition-colors">Process</Link>
+                            <Link href="/careers" className="hover:text-secondary transition-colors">Careers</Link>
                         </nav>
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                        <h3 className="font-semibold text-foreground">Services</h3>
-                        <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                            <Link href="/services#design" className="hover:text-primary transition-colors">Design & Consulting</Link>
-                            <Link href="/services#hardscape" className="hover:text-primary transition-colors">Hardscaping</Link>
-                            <Link href="/services#softscape" className="hover:text-primary transition-colors">Softscaping</Link>
-                            <Link href="/services#maintenance" className="hover:text-primary transition-colors">Maintenance</Link>
+                    <div className="flex flex-col gap-6">
+                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-xs">Services</h3>
+                        <nav className="flex flex-col gap-3 text-sm text-primary-foreground/70">
+                            <Link href="/services#design" className="hover:text-secondary transition-colors">Design & Consulting</Link>
+                            <Link href="/services#hardscape" className="hover:text-secondary transition-colors">Hardscaping</Link>
+                            <Link href="/services#softscape" className="hover:text-secondary transition-colors">Softscaping</Link>
+                            <Link href="/services#maintenance" className="hover:text-secondary transition-colors">Maintenance</Link>
                         </nav>
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                        <h3 className="font-semibold text-foreground">Contact</h3>
-                        <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" target="_blank" rel="noopener noreferrer">Kondotty, Kerala</a>
-                            <a href="tel:+91 9645 333 700">+91 9645 333 700</a>
-                            <a href="mailto:teamlandschaft@gmail.com">teamlandschaft@gmail.com</a>
-                            <div className="flex gap-4 mt-2">
-                                <a href="https://www.instagram.com/teamlandschaft" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-wider hover:text-primary transition-colors">Instagram</a>
-                                <span className="text-xs uppercase tracking-wider">LinkedIn</span>
+                    <div className="flex flex-col gap-6">
+                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-xs">Contact</h3>
+                        <div className="flex flex-col gap-3 text-sm text-primary-foreground/70">
+                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Kondotty, Kerala</a>
+                            <a href="tel:+91 9645 333 700" className="hover:text-secondary transition-colors">+91 9645 333 700</a>
+                            <a href="mailto:teamlandschaft@gmail.com" className="hover:text-secondary transition-colors">teamlandschaft@gmail.com</a>
+                            <div className="flex gap-6 mt-2">
+                                <a href="https://www.instagram.com/teamlandschaft" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-wider hover:text-secondary transition-colors">Instagram</a>
+                                <span className="text-xs uppercase tracking-wider opacity-50">LinkedIn</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t pt-6 md:mt-12 md:flex-row md:gap-0 md:pt-8">
-                    <p className="text-[10px] text-muted-foreground sm:text-xs">
+                <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-8 md:mt-20 md:flex-row md:gap-0">
+                    <p className="text-[10px] text-primary-foreground/50 sm:text-xs">
                         © {new Date().getFullYear()} Landschaft. All rights reserved.
                     </p>
-                    <div className="flex gap-6 text-[10px] text-muted-foreground sm:text-xs">
-                        <Link href="/privacy" className="hover:text-foreground">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-foreground">Terms of Service</Link>
+                    <div className="flex gap-8 text-[10px] text-primary-foreground/50 sm:text-xs">
+                        <Link href="/privacy" className="hover:text-secondary">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-secondary">Terms of Service</Link>
                     </div>
                 </div>
             </Container>
