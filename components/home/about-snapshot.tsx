@@ -6,7 +6,7 @@ import { Leaf } from "lucide-react"
 
 export function AboutSnapshot() {
     return (
-        <section className="pt-8 pb-16 md:pt-20 md:pb-24 bg-muted/20">
+        <section className="pt-8 pb-16 md:pt-20 md:pb-24 bg-background">
             <Container className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
                 <div className="w-full max-w-[360px] sm:max-w-[400px] md:max-w-md lg:max-w-[460px] mx-auto md:mx-0">
                     <div className="relative aspect-[4/5] bg-neutral-100 rounded-3xl overflow-hidden group shadow-2xl">

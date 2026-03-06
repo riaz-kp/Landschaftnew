@@ -13,7 +13,7 @@ const services = [
 
 export function ServicesGrid() {
     return (
-        <section className="py-24 md:py-32 bg-background overflow-hidden relative">
+        <section className="py-24 md:py-32 bg-secondary/10 overflow-hidden relative">
             <Container>
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
                     <div>

@@ -10,7 +10,7 @@ export async function FeaturedProjects() {
     const featuredProjects = projects.filter(p => p.featured && p.published !== false)
 
     return (
-        <section className="py-24 bg-secondary/20">
+        <section className="py-24 bg-background">
             <Container>
                 {featuredProjects.length > 0 ? (
                     <>

@@ -26,7 +26,7 @@ const pillars = [
 
 export function WhyLandschaft() {
     return (
-        <section className="py-24 bg-muted/20">
+        <section className="py-24 bg-background">
             <Container>
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-light text-foreground sm:text-4xl">Why Landschaft?</h2>

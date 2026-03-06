@@ -2,7 +2,7 @@ import { Container } from "@/components/layout/container"
 
 export function Philosophy() {
     return (
-        <section className="py-32 md:py-40 bg-background relative overflow-hidden">
+        <section className="py-32 md:py-40 bg-secondary/10 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] leading-none text-primary/5 font-serif italic pointer-events-none select-none">
                 "
             </div>

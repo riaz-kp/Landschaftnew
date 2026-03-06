@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/container"
 
 export function CTA() {
     return (
-        <section className="py-24 md:py-40 bg-background border-t border-secondary/20">
+        <section className="py-24 md:py-40 bg-secondary/10 border-t border-secondary/20">
             <Container className="text-center">
                 <div className="max-w-4xl mx-auto">
                     <span className="inline-block text-primary/80 font-semibold uppercase tracking-[0.3em] text-[10px] mb-8">
