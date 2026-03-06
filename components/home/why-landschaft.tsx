@@ -26,19 +26,24 @@ const pillars = [
 
 export function WhyLandschaft() {
     return (
-        <section className="py-24 bg-muted/20">
+        <section className="py-24 bg-background">
             <Container>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-light text-foreground sm:text-4xl">Why Landschaft?</h2>
+                <div className="text-center mb-16 sm:mb-20">
+                    <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase">
+                        Our Approach
+                    </span>
+                    <h2 className="mt-3 text-3xl font-light text-foreground sm:text-4xl lg:text-5xl leading-[1.2] text-balance">
+                        Why Landschaft?
+                    </h2>
                 </div>
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                     {pillars.map((pillar) => (
-                        <div key={pillar.title} className="flex flex-col items-center text-center">
-                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-sm text-primary">
+                        <div key={pillar.title} className="flex flex-col items-center text-center group">
+                            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-sm text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                                 <pillar.icon className="h-8 w-8" />
                             </div>
-                            <h3 className="text-lg font-medium text-foreground">{pillar.title}</h3>
-                            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                            <h3 className="text-lg font-medium text-foreground leading-tight tracking-tight">{pillar.title}</h3>
+                            <p className="mt-4 text-sm text-muted-foreground/60 leading-relaxed px-2">
                                 {pillar.description}
                             </p>
                         </div>

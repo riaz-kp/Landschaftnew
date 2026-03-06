@@ -19,11 +19,11 @@ export function Hero() {
             </div>
 
             <Container className="relative z-10 text-center text-white">
-                <h1 className="mx-auto max-w-5xl text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl text-balance">
+                <h1 className="mx-auto max-w-5xl text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl text-balance leading-[1.1] sm:leading-[1.05]">
                     Crafting Living Landscapes That Endure
                 </h1>
-                <p className="mx-auto mt-8 max-w-2xl text-xs sm:text-sm font-light uppercase tracking-[0.2em] text-white/70">
-                    Environmental Planning <span className="mx-2 opacity-50">•</span> Landscape Design <span className="mx-2 opacity-50">•</span> Execution
+                <p className="mx-auto mt-8 max-w-2xl text-[10px] sm:text-xs font-medium uppercase tracking-[0.3em] text-white/50">
+                    Environmental Planning <span className="mx-3 opacity-30">|</span> Landscape Design <span className="mx-3 opacity-30">|</span> Execution
                 </p>
                 <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
                     <Button size="lg" variant="outline" className="h-14 px-10 text-xs sm:text-sm font-medium uppercase tracking-wider rounded-full border-white/50 bg-transparent text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm" asChild>

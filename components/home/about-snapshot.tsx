@@ -6,7 +6,7 @@ import { Leaf } from "lucide-react"
 
 export function AboutSnapshot() {
     return (
-        <section className="pt-8 pb-16 md:pt-20 md:pb-24 bg-muted/20">
+        <section className="pt-8 pb-16 md:pt-20 md:pb-24 bg-background">
             <Container className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
                 <div className="w-full max-w-[360px] sm:max-w-[400px] md:max-w-md lg:max-w-[460px] mx-auto md:mx-0">
                     <div className="relative aspect-[4/5] bg-neutral-100 rounded-3xl overflow-hidden group shadow-2xl">
@@ -22,13 +22,13 @@ export function AboutSnapshot() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-6 lg:pl-10">
-                    <span className="text-sm font-medium tracking-widest text-primary uppercase">
+                    <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase">
                         About Landschaft
                     </span>
-                    <h2 className="text-3xl font-light text-foreground sm:text-4xl xl:text-5xl leading-tight">
+                    <h2 className="text-3xl font-light text-foreground sm:text-4xl lg:text-5xl leading-[1.2] text-balance">
                         Rooted in Ecology, <br className="hidden sm:block" /> Driven by Design.
                     </h2>
-                    <ul className="space-y-6 text-base md:text-lg text-muted-foreground mt-4">
+                    <ul className="space-y-5 text-sm sm:text-base text-muted-foreground/80 mt-6 md:mt-8">
                         <li className="flex items-start gap-4">
                             <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                                 <Leaf className="h-3.5 w-3.5 text-primary" />

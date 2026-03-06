@@ -10,16 +10,20 @@ export async function FeaturedProjects() {
     const featuredProjects = projects.filter(p => p.featured && p.published !== false)
 
     return (
-        <section className="py-24 bg-secondary/20">
+        <section className="py-24 bg-background">
             <Container>
                 {featuredProjects.length > 0 ? (
                     <>
-                        <div className="flex items-end justify-between mb-12">
+                        <div className="flex items-end justify-between mb-12 sm:mb-16">
                             <div>
-                                <span className="text-sm font-semibold uppercase tracking-widest text-primary/80">Portfolio</span>
-                                <h2 className="mt-2 text-3xl font-light text-foreground sm:text-4xl">Featured Projects</h2>
+                                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase">
+                                    Portfolio
+                                </span>
+                                <h2 className="mt-3 text-3xl font-light text-foreground sm:text-4xl lg:text-5xl leading-[1.2] text-balance">
+                                    Featured Projects
+                                </h2>
                             </div>
-                            <Button variant="ghost" asChild className="hidden sm:inline-flex group">
+                            <Button variant="ghost" asChild className="hidden sm:inline-flex group h-12 px-6 text-sm font-medium uppercase tracking-widest">
                                 <Link href="/projects">
                                     View All Projects
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -46,12 +50,12 @@ export async function FeaturedProjects() {
                                             )}
                                             <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                                         </div>
-                                        <CardHeader className="p-5 pb-4">
-                                            <CardTitle className="text-xl font-medium text-foreground transition-colors group-hover:text-primary">
+                                        <CardHeader className="p-6">
+                                            <CardTitle className="text-xl font-medium text-foreground transition-colors group-hover:text-primary leading-tight tracking-tight">
                                                 {project.title}
                                             </CardTitle>
-                                            <CardDescription>
-                                                {project.location} • {project.category}
+                                            <CardDescription className="text-sm text-muted-foreground/60 mt-2 font-light uppercase tracking-widest text-[10px]">
+                                                {project.location} <span className="mx-1 opacity-30">•</span> {project.category}
                                             </CardDescription>
                                         </CardHeader>
                                         <CardFooter className="p-5 pt-0 mt-auto w-full">
