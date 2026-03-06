@@ -14,14 +14,8 @@ export function Footer() {
             <Container>
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
-                        <Link href="/" className="flex flex-col gap-6 group w-fit">
-                            <span
-                                className="text-xl font-bold tracking-[0.05em] transition-opacity group-hover:opacity-80"
-                                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-                            >
-                                LANDSCHAFT
-                            </span>
-                            <div className="relative h-20 w-20 opacity-90 transition-opacity group-hover:opacity-100 brightness-110">
+                        <Link href="/" className="flex flex-col items-center gap-1 group w-fit">
+                            <div className="relative h-24 w-24 opacity-90 transition-opacity group-hover:opacity-100">
                                 <NextImage
                                     src="/logo.svg"
                                     alt="Landschaft Logo Icon"
@@ -29,6 +23,15 @@ export function Footer() {
                                     className="object-contain"
                                 />
                             </div>
+                            <span
+                                className="text-xl font-bold tracking-[0.05em] transition-opacity group-hover:opacity-80 pb-2"
+                                style={{
+                                    fontFamily: 'var(--font-montserrat), sans-serif',
+                                    color: '#C8B8A2'
+                                }}
+                            >
+                                LANDSCHAFT
+                            </span>
                         </Link>
                     </div>
 
