@@ -25,31 +25,31 @@ export function ServicesGrid() {
                     </p>
                 </div>
 
-                <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((service) => (
                         <Link
                             key={service.title}
                             href={`/services#${service.id}`}
-                            className="group relative flex flex-row items-center justify-between rounded-[2rem] bg-muted/20 p-8 sm:p-10 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-6"
+                            className="group relative flex flex-row items-center justify-between rounded-3xl bg-muted/20 p-6 sm:p-8 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-4"
                         >
                             <div className="relative z-10 flex flex-col flex-1">
-                                <h3 className="text-xl sm:text-2xl font-medium text-foreground group-hover:text-primary-foreground transition-colors duration-500">
+                                <h3 className="text-lg sm:text-xl font-medium text-foreground group-hover:text-primary-foreground transition-colors duration-500">
                                     {service.title}
                                 </h3>
-                                <p className="mt-3 text-sm sm:text-base text-muted-foreground group-hover:text-primary-foreground/80 transition-colors duration-500 leading-relaxed pr-2">
+                                <p className="mt-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors duration-500 leading-relaxed pr-2">
                                     {service.description}
                                 </p>
                             </div>
                             <div className="relative z-10 shrink-0">
-                                <div className="relative flex h-24 w-24 sm:h-32 sm:w-32 items-center justify-center rounded-[1.25rem] sm:rounded-[1.5rem] bg-background overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:scale-105">
+                                <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-background overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:scale-105">
                                     <Image
                                         src={service.image}
                                         alt={service.title}
                                         fill
-                                        sizes="(max-width: 640px) 96px, 128px"
-                                        className="object-cover p-2 sm:p-4 transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 640px) 64px, 80px"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500 mix-blend-multiply pointer-events-none" />
+                                    <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-multiply" />
                                 </div>
                             </div>
                         </Link>
