@@ -69,13 +69,16 @@ export function Navbar() {
             <Container className="flex h-16 items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2 z-50 relative group">
-                    <span className="text-xl font-bold tracking-tight text-primary transition-opacity group-hover:opacity-80">
+                    <span
+                        className="text-xl font-bold tracking-[0.05em] text-primary transition-opacity group-hover:opacity-80 pb-1"
+                        style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                    >
                         LANDSCHAFT
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-6 h-full">
                     {navItems.map((item) => {
                         const isActive = item.href === "/"
                             ? pathname === "/"
@@ -134,7 +137,12 @@ export function Navbar() {
                             >
                                 {/* Mobile Header for Close Button */}
                                 <div className="flex items-center justify-between p-4 px-6 border-b h-16">
-                                    <span className="text-xl font-bold tracking-tight text-primary">LANDSCHAFT</span>
+                                    <span
+                                        className="text-xl font-bold tracking-[0.05em] text-primary pb-1"
+                                        style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                                    >
+                                        LANDSCHAFT
+                                    </span>
                                     <button
                                         className="p-2 -mr-2 text-foreground focus:outline-none"
                                         onClick={() => setIsOpen(false)}
