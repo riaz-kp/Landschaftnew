@@ -78,7 +78,7 @@ export function Navbar() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6 lg:gap-6 h-full">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
                     {navItems.map((item) => {
                         const isActive = item.href === "/"
                             ? pathname === "/"
@@ -89,7 +89,7 @@ export function Navbar() {
                                 key={item.href}
                                 href={item.href}
                                 className={cn(
-                                    "relative flex items-center h-full text-base font-medium transition-colors group",
+                                    "relative flex items-center h-full text-sm font-medium transition-colors group",
                                     isActive
                                         ? "text-primary"
                                         : "text-muted-foreground hover:text-primary"
