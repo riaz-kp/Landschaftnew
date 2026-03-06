@@ -33,11 +33,11 @@ export function WhyLandschaft() {
                 </div>
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                     {pillars.map((pillar) => (
-                        <div key={pillar.title} className="flex flex-col items-center text-center group">
-                            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-background shadow-sm text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-xl group-hover:-translate-y-2 group-hover:rotate-3">
-                                <pillar.icon className="h-10 w-10 transition-transform duration-300 group-hover:scale-110" />
+                        <div key={pillar.title} className="flex flex-col items-center text-center">
+                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-sm text-primary">
+                                <pillar.icon className="h-8 w-8" />
                             </div>
-                            <h3 className="text-xl font-medium text-foreground">{pillar.title}</h3>
+                            <h3 className="text-lg font-medium text-foreground">{pillar.title}</h3>
                             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                                 {pillar.description}
                             </p>
