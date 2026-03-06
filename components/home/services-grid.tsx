@@ -30,7 +30,7 @@ export function ServicesGrid() {
                         <Link
                             key={service.title}
                             href={`/services#${service.id}`}
-                            className="group relative flex flex-row items-center justify-between rounded-3xl bg-secondary/50 p-6 sm:p-8 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-4"
+                            className="group relative flex flex-row items-center justify-between rounded-3xl bg-muted/20 p-6 sm:p-8 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-4"
                         >
                             <div className="relative z-10 flex flex-col flex-1">
                                 <h3 className="text-lg sm:text-xl font-medium text-foreground group-hover:text-primary-foreground transition-colors duration-500">
