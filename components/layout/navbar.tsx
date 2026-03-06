@@ -24,10 +24,18 @@ const navItems = [
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false)
     const [mounted, setMounted] = React.useState(false)
+    const [scrolled, setScrolled] = React.useState(false)
     const pathname = usePathname()
 
     React.useEffect(() => {
         setMounted(true)
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20)
+        }
+        window.addEventListener("scroll", handleScroll)
+        // Check initial scroll position
+        handleScroll()
+        return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
     // Lock body scroll when menu is open
@@ -50,30 +58,56 @@ export function Navbar() {
     if (pathname?.startsWith("/admin")) return null
 
     return (
-        <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
+        <header
+            className={cn(
+                "sticky top-0 z-40 w-full border-b transition-all duration-300",
+                scrolled
+                    ? "bg-background/90 backdrop-blur-xl shadow-sm"
+                    : "bg-background/70 backdrop-blur-md"
+            )}
+        >
             <Container className="flex h-16 items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center space-x-2 z-50 relative">
-                    <span className="text-xl font-bold tracking-tight text-primary">LANDSCHAFT</span>
+                <Link href="/" className="flex items-center space-x-2 z-50 relative group">
+                    <span className="text-xl font-bold tracking-tight text-primary transition-opacity group-hover:opacity-80">
+                        LANDSCHAFT
+                    </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={cn(
-                                "text-sm font-medium transition-colors hover:text-primary",
-                                pathname === item.href
-                                    ? "text-primary"
-                                    : "text-muted-foreground"
-                            )}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    <Button asChild>
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
+                    {navItems.map((item) => {
+                        const isActive = item.href === "/"
+                            ? pathname === "/"
+                            : pathname?.startsWith(item.href)
+
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={cn(
+                                    "relative flex items-center h-full text-base font-medium transition-colors group",
+                                    isActive
+                                        ? "text-primary"
+                                        : "text-muted-foreground hover:text-primary"
+                                )}
+                            >
+                                <span>{item.name}</span>
+
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="navbar-indicator"
+                                        className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-primary"
+                                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                                    />
+                                )}
+                                {!isActive && (
+                                    <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-primary scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100 opacity-0 group-hover:opacity-50" />
+                                )}
+                            </Link>
+                        )
+                    })}
+                    <Button asChild className="ml-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
                         <Link href="/contact">Book Consultation</Link>
                     </Button>
                 </nav>
@@ -110,7 +144,7 @@ export function Navbar() {
                                     </button>
                                 </div>
 
-                                <nav className="flex-1 flex flex-col justify-center gap-6 p-8 overflow-y-auto">
+                                <nav className="flex-1 flex flex-col justify-center gap-4 p-6 overflow-hidden">
                                     {navItems.map((item, index) => {
                                         const isActive = item.href === "/"
                                             ? pathname === "/"
@@ -127,17 +161,13 @@ export function Navbar() {
                                                 <Link
                                                     href={item.href}
                                                     className={cn(
-                                                        "text-xl font-light tracking-tight transition-colors inline-flex items-center gap-4",
-                                                        isActive ? "text-primary italic" : "text-foreground hover:text-primary"
+                                                        "text-lg tracking-tight transition-all inline-flex items-center justify-center px-6 py-2.5 rounded-full",
+                                                        isActive
+                                                            ? "bg-[#D6C7B2] text-[#1F3D2B] font-medium shadow-sm"
+                                                            : "text-foreground hover:bg-[#D6C7B2]/30 font-light hover:text-primary"
                                                     )}
                                                     onClick={() => setIsOpen(false)}
                                                 >
-                                                    {isActive && (
-                                                        <motion.span
-                                                            layoutId="activeDot"
-                                                            className="h-2 w-2 rounded-full bg-primary"
-                                                        />
-                                                    )}
                                                     {item.name}
                                                 </Link>
                                             </motion.div>
@@ -148,9 +178,9 @@ export function Navbar() {
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: 0.5 }}
-                                        className="pt-12 flex justify-center"
+                                        className="pt-6 flex justify-center"
                                     >
-                                        <Button className="w-full max-w-xs text-lg h-14 rounded-full" size="lg" asChild>
+                                        <Button className="w-full max-w-xs text-lg h-12 rounded-full" size="lg" asChild>
                                             <Link href="/contact" onClick={() => setIsOpen(false)}>
                                                 Book Consultation
                                             </Link>
