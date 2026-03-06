@@ -37,9 +37,9 @@ export function Footer() {
                         </div>
                     </div>
 
-                    <div className="col-span-1 lg:col-span-1 flex flex-col gap-4">
-                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-[10px] md:text-xs">Navigation</h3>
-                        <nav className="flex flex-col gap-2 md:gap-3 text-xs md:text-sm text-primary-foreground/70">
+                    <div className="col-span-1 lg:col-span-1 flex flex-col gap-5">
+                        <h3 className="font-semibold text-secondary uppercase tracking-[0.25em] text-[11px] sm:text-xs">Navigation</h3>
+                        <nav className="flex flex-col gap-3 md:gap-4 text-xs sm:text-sm text-primary-foreground/60 transition-colors">
                             <Link href="/about" className="hover:text-secondary transition-colors">About Us</Link>
                             <Link href="/services" className="hover:text-secondary transition-colors">Services</Link>
                             <Link href="/projects" className="hover:text-secondary transition-colors">Projects</Link>
@@ -48,9 +48,9 @@ export function Footer() {
                         </nav>
                     </div>
 
-                    <div className="col-span-1 lg:col-span-1 flex flex-col gap-4">
-                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-[10px] md:text-xs">Services</h3>
-                        <nav className="flex flex-col gap-2 md:gap-3 text-xs md:text-sm text-primary-foreground/70">
+                    <div className="col-span-1 lg:col-span-1 flex flex-col gap-5">
+                        <h3 className="font-semibold text-secondary uppercase tracking-[0.25em] text-[11px] sm:text-xs">Services</h3>
+                        <nav className="flex flex-col gap-3 md:gap-4 text-xs sm:text-sm text-primary-foreground/60 transition-colors">
                             <Link href="/services#design" className="hover:text-secondary transition-colors">Design & Consulting</Link>
                             <Link href="/services#hardscape" className="hover:text-secondary transition-colors">Hardscaping</Link>
                             <Link href="/services#softscape" className="hover:text-secondary transition-colors">Softscaping</Link>
@@ -58,9 +58,9 @@ export function Footer() {
                         </nav>
                     </div>
 
-                    <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
-                        <h3 className="font-semibold text-secondary uppercase tracking-widest text-[10px] md:text-xs">Contact</h3>
-                        <div className="flex flex-col gap-2 md:gap-3 text-xs md:text-sm text-primary-foreground/70">
+                    <div className="col-span-2 lg:col-span-1 flex flex-col gap-5">
+                        <h3 className="font-semibold text-secondary uppercase tracking-[0.25em] text-[11px] sm:text-xs">Contact</h3>
+                        <div className="flex flex-col gap-3 md:gap-4 text-xs sm:text-sm text-primary-foreground/60">
                             <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Kondotty, Kerala</a>
                             <a href="tel:+91 9645 333 700" className="hover:text-secondary transition-colors">+91 9645 333 700</a>
                             <a href="mailto:teamlandschaft@gmail.com" className="hover:text-secondary transition-colors">teamlandschaft@gmail.com</a>

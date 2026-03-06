@@ -17,10 +17,14 @@ export function ServicesGrid() {
             <Container>
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
                     <div>
-                        <span className="text-sm font-semibold uppercase tracking-widest text-primary/80">Expertise</span>
-                        <h2 className="mt-3 text-3xl font-light text-foreground sm:text-4xl md:text-5xl">Signature Services</h2>
+                        <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase">
+                            Expertise
+                        </span>
+                        <h2 className="mt-3 text-3xl font-light text-foreground sm:text-4xl lg:text-5xl leading-[1.2] text-balance">
+                            Signature Services
+                        </h2>
                     </div>
-                    <p className="max-w-md text-muted-foreground text-lg font-light md:text-right">
+                    <p className="max-w-md text-muted-foreground/70 text-base sm:text-lg font-light md:text-right leading-relaxed">
                         Comprehensive landscape solutions from concept to care.
                     </p>
                 </div>
@@ -33,10 +37,10 @@ export function ServicesGrid() {
                             className="group relative flex flex-row items-center justify-between rounded-3xl bg-muted/20 p-6 sm:p-8 hover:bg-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-primary-foreground/10 overflow-hidden gap-4"
                         >
                             <div className="relative z-10 flex flex-col flex-1">
-                                <h3 className="text-lg sm:text-xl font-medium text-foreground group-hover:text-primary-foreground transition-colors duration-500">
+                                <h3 className="text-lg sm:text-xl font-medium text-foreground group-hover:text-primary-foreground transition-colors duration-500 leading-tight">
                                     {service.title}
                                 </h3>
-                                <p className="mt-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors duration-500 leading-relaxed pr-2">
+                                <p className="mt-2 text-sm text-muted-foreground/70 group-hover:text-primary-foreground/80 transition-colors duration-500 leading-relaxed pr-2">
                                     {service.description}
                                 </p>
                             </div>
