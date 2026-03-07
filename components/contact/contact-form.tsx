@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
+import { motion, AnimatePresence } from "framer-motion"
+import { Send, CheckCircle2 } from "lucide-react"
 
 export function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -50,12 +52,21 @@ export function ContactForm() {
 
     if (submitted) {
         return (
-            <div className="bg-primary/10 p-8 rounded-lg text-center">
-                <h3 className="text-xl font-medium text-foreground">Thank you for reaching out!</h3>
-                <p className="mt-2 text-muted-foreground">We will get back to you shortly to discuss your vision.</p>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-accent/5 border border-accent/20 p-10 rounded-2xl text-center"
+            >
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
+                    <CheckCircle2 className="h-8 w-8" />
+                </div>
+                <h3 className="text-2xl font-light text-foreground">Message Sent</h3>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                    Thank you for reaching out. We've received your message and will get back to you within 24-48 hours.
+                </p>
                 <Button
                     variant="outline"
-                    className="mt-6"
+                    className="mt-8 rounded-full px-8 border-accent text-accent hover:bg-accent hover:text-white"
                     onClick={() => {
                         setSubmitted(false)
                         setFormData({ name: "", email: "", phone: "", message: "" })
@@ -63,15 +74,17 @@ export function ContactForm() {
                 >
                     Send another message
                 </Button>
-            </div>
+            </motion.div>
         )
     }
 
+    const inputClasses = "w-full bg-transparent border-b border-border py-3 px-0 text-foreground focus:outline-none focus:border-accent transition-colors duration-300 placeholder:text-muted-foreground/50"
+
     return (
-        <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium leading-none text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+        <form onSubmit={handleSubmit} className="space-y-10">
+            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+                <div className="space-y-2 group">
+                    <label htmlFor="name" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
                         Name
                     </label>
                     <input
@@ -79,12 +92,12 @@ export function ContactForm() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Your Name"
+                        className={inputClasses}
+                        placeholder="John Doe"
                     />
                 </div>
-                <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium leading-none text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="space-y-2 group">
+                    <label htmlFor="email" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
                         Email
                     </label>
                     <input
@@ -93,42 +106,54 @@ export function ContactForm() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="you@example.com"
+                        className={inputClasses}
+                        placeholder="john@example.com"
                     />
                 </div>
             </div>
 
-            <div className="space-y-2">
-                <label htmlFor="phone" className="text-sm font-medium leading-none text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Phone
+            <div className="space-y-2 group">
+                <label htmlFor="phone" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
+                    Phone (Optional)
                 </label>
                 <input
                     id="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={inputClasses}
                     placeholder="+91 XXXXX XXXXX"
                 />
             </div>
 
-            <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium leading-none text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Project Details
+            <div className="space-y-2 group">
+                <label htmlFor="message" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
+                    Message
                 </label>
                 <textarea
                     id="message"
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Tell us about your space and vision..."
+                    className={inputClasses + " min-h-[100px] resize-none"}
+                    placeholder="Tell us about your project..."
                 />
             </div>
 
-            <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
+            <Button
+                type="submit"
+                size="lg"
+                className="w-full sm:w-auto rounded-full px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                disabled={isSubmitting}
+            >
+                {isSubmitting ? (
+                    "Sending..."
+                ) : (
+                    <span className="flex items-center gap-2">
+                        Send Message
+                        <Send className="h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </span>
+                )}
             </Button>
         </form>
     )
