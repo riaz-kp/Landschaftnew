@@ -51,24 +51,24 @@ export async function FeaturedProjects() {
                                             {/* Overlay gradient */}
                                             <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
 
-                                            {/* Floating Category Pill */}
+                                            {/* Minimal Category on Image */}
                                             {project.category && (
-                                                <div className="absolute top-4 left-4 z-10 transition-transform duration-500 group-hover:-translate-y-1">
-                                                    <span className="inline-flex items-center rounded-full bg-background/95 backdrop-blur-md px-3.5 py-1.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground shadow-sm">
+                                                <div className="absolute top-4 left-4 z-10">
+                                                    <span className="inline-flex items-center rounded-full bg-[#F3EFEA]/95 backdrop-blur-sm px-3 py-1 text-[10px] md:px-2.5 md:py-0.5 md:text-[8px] font-medium tracking-[0.2em] uppercase text-primary shadow-sm">
                                                         {project.category}
                                                     </span>
                                                 </div>
                                             )}
 
-                                            {/* Floating Action Button */}
-                                            <div className="absolute bottom-4 right-4 z-10 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground shadow-xl hover:bg-primary hover:text-primary-foreground transition-colors">
-                                                    <ArrowRight className="h-5 w-5 -rotate-45" />
+                                            {/* Always Visible Clickable Arrow on Image */}
+                                            <div className="absolute bottom-4 right-4 z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1">
+                                                <div className="flex h-10 w-10 md:h-8 md:w-8 items-center justify-center rounded-full bg-[#F3EFEA]/95 backdrop-blur-sm text-primary shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                                    <ArrowRight className="h-4 w-4 md:h-3 md:w-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="pt-6">
+                                        <div className="pt-5 flex flex-col flex-1">
                                             <h3 className="text-xl lg:text-2xl font-medium text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
                                                 {project.title}
                                             </h3>
