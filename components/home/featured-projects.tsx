@@ -3,7 +3,7 @@ import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { getProjects } from "@/lib/data/projects"
 import { Image as ImageIcon, ArrowRight } from "lucide-react"
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+
 
 export async function FeaturedProjects() {
     const projects = await getProjects()
@@ -31,44 +31,57 @@ export async function FeaturedProjects() {
                             </Button>
                         </div>
 
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid gap-8 md:gap-x-8 md:gap-y-12 md:grid-cols-2 lg:grid-cols-4">
                             {featuredProjects.map((project) => (
                                 <Link key={project.slug} href={`/projects/${project.slug}`} className="group block h-full">
-                                    <Card className="flex flex-col h-full overflow-hidden p-0 gap-0 rounded-2xl transition-all duration-300 hover:shadow-xl bg-card border-border hover:border-primary/40 group-hover:-translate-y-1">
-                                        <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-200 shrink-0">
+                                    <div className="relative flex flex-col h-full bg-transparent transition-all duration-500">
+                                        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 shrink-0">
                                             {project.image && project.image !== "/placeholder.svg" ? (
                                                 <img
                                                     src={project.image}
                                                     alt={project.title}
-                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                                                 />
                                             ) : (
-                                                <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/50 text-lg font-light bg-muted transition-transform duration-700 group-hover:scale-105">
-                                                    <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
-                                                    No Image
+                                                <div className="absolute inset-0 flex items-center justify-center bg-muted/30 transition-transform duration-1000 group-hover:scale-105">
+                                                    <ImageIcon className="w-8 h-8 opacity-20" />
                                                 </div>
                                             )}
-                                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
-                                        </div>
-                                        <CardHeader className="p-6">
-                                            <CardTitle className="text-xl font-medium text-foreground transition-colors group-hover:text-primary leading-tight tracking-tight">
-                                                {project.title}
-                                            </CardTitle>
-                                            <CardDescription className="text-sm text-muted-foreground/60 mt-2 font-light uppercase tracking-widest text-[10px]">
-                                                {project.location} <span className="mx-1 opacity-30">•</span> {project.category}
-                                            </CardDescription>
-                                        </CardHeader>
-                                        <CardFooter className="p-5 pt-0 mt-auto w-full">
-                                            <div className="flex items-center w-full pt-4 border-t border-border/50">
-                                                <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                                                    View Project
-                                                </span>
-                                                <div className="flex h-8 w-8 ml-auto items-center justify-center rounded-full bg-secondary/80 text-foreground transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-md items-center justify-center">
-                                                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:-rotate-45" />
+
+                                            {/* Overlay gradient */}
+                                            <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
+
+                                            {/* Floating Category Pill */}
+                                            {project.category && (
+                                                <div className="absolute top-4 left-4 z-10 transition-transform duration-500 group-hover:-translate-y-1">
+                                                    <span className="inline-flex items-center rounded-full bg-background/95 backdrop-blur-md px-3.5 py-1.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground shadow-sm">
+                                                        {project.category}
+                                                    </span>
+                                                </div>
+                                            )}
+
+                                            {/* Floating Action Button */}
+                                            <div className="absolute bottom-4 right-4 z-10 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground shadow-xl hover:bg-primary hover:text-primary-foreground transition-colors">
+                                                    <ArrowRight className="h-5 w-5 -rotate-45" />
                                                 </div>
                                             </div>
-                                        </CardFooter>
-                                    </Card>
+                                        </div>
+
+                                        <div className="pt-6">
+                                            <h3 className="text-xl lg:text-2xl font-medium text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
+                                                {project.title}
+                                            </h3>
+                                            {project.location && (
+                                                <div className="mt-3 flex items-center gap-3">
+                                                    <span className="w-8 h-[1px] bg-primary/30"></span>
+                                                    <p className="text-xs text-muted-foreground/80 font-medium uppercase tracking-[0.15em]">
+                                                        {project.location}
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
                                 </Link>
                             ))}
                         </div>
