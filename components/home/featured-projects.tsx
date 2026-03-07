@@ -54,7 +54,7 @@ export async function FeaturedProjects() {
                                             {/* Minimal Category on Image */}
                                             {project.category && (
                                                 <div className="absolute top-4 left-4 z-10">
-                                                    <span className="inline-flex items-center rounded-full bg-[#F3EFEA]/95 backdrop-blur-sm px-3 py-1 text-[10px] md:px-2.5 md:py-0.5 md:text-[8px] font-medium tracking-[0.2em] uppercase text-primary shadow-sm">
+                                                    <span className="inline-flex items-center rounded-full bg-black/20 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] md:px-2.5 md:py-0.5 md:text-[8px] font-medium tracking-[0.2em] uppercase text-white shadow-lg">
                                                         {project.category}
                                                     </span>
                                                 </div>
@@ -62,7 +62,7 @@ export async function FeaturedProjects() {
 
                                             {/* Always Visible Clickable Arrow on Image */}
                                             <div className="absolute bottom-4 right-4 z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1">
-                                                <div className="flex h-10 w-10 md:h-8 md:w-8 items-center justify-center rounded-full bg-[#F3EFEA]/95 backdrop-blur-sm text-primary shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                                <div className="flex h-10 w-10 md:h-8 md:w-8 items-center justify-center rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white shadow-lg group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-transparent transition-all">
                                                     <ArrowRight className="h-4 w-4 md:h-3 md:w-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                                 </div>
                                             </div>

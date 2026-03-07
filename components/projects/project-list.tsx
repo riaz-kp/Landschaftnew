@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Project } from "@/lib/data/projects"
+import { ArrowRight } from "lucide-react"
 
 const categories = ["All", "Residential", "Commercial"]
 
@@ -33,18 +34,25 @@ export function ProjectList({ initialProjects }: { initialProjects: Project[] })
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredProjects.map((project) => (
-                    <Link key={project.slug} href={`/projects/${project.slug}`} className="group block">
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
+                    <Link key={project.slug} href={`/projects/${project.slug}`} className="group block h-full">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-200">
                             {project.image ? (
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                                 />
                             ) : (
-                                <div className="absolute inset-0 bg-neutral-300 transition-transform duration-700 ease-out group-hover:scale-105" />
+                                <div className="absolute inset-0 bg-neutral-300 transition-transform duration-1000 ease-out group-hover:scale-105" />
                             )}
-                            <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+                            <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
+
+                            {/* Always Visible Clickable Arrow on Image */}
+                            <div className="absolute bottom-4 right-4 z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1">
+                                <div className="flex h-10 w-10 md:h-8 md:w-8 items-center justify-center rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white shadow-lg group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-transparent transition-all">
+                                    <ArrowRight className="h-4 w-4 md:h-3 md:w-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                </div>
+                            </div>
                         </div>
                         <div className="mt-5">
                             <span className="text-xs font-semibold uppercase tracking-wider text-primary">{project.category}</span>
