@@ -34,35 +34,47 @@
 }
 
 :root {
-  --background: 40 20% 97%;
-  /* Soft cream/off-white */
-  --foreground: 160 10% 15%;
-  /* Dark charcoal/green tone */
+  --background: 43 28% 95%;
+  /* Soft Off-White (#F6F4EF) */
+  --foreground: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
 
-  --primary: 160 30% 25%;
-  /* Deep nature green */
-  --primary-foreground: 40 20% 97%;
+  --primary: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
+  --primary-foreground: 43 28% 95%;
+  /* Soft Off-White (#F6F4EF) */
 
-  --secondary: 35 20% 90%;
-  /* Light beige */
-  --secondary-foreground: 160 10% 15%;
+  --secondary: 35 31% 77%;
+  /* Warm Stone (#D6C7B2) */
+  --secondary-foreground: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
 
-  --accent: 85 30% 45%;
-  /* Muted olive/fern */
-  --accent-foreground: 40 20% 97%;
+  --accent: 96 11% 49%;
+  /* Muted Olive (#7A8B6F) */
+  --accent-foreground: 43 28% 95%;
+  /* Soft Off-White (#F6F4EF) */
 
-  --muted: 35 15% 94%;
-  --muted-foreground: 160 5% 40%;
+  --muted: 35 31% 77%;
+  /* Warm Stone (#D6C7B2) */
+  --muted-foreground: 144 33% 35%;
+  /* Lighter Deep Forest Green */
 
-  --card: 40 20% 97%;
-  --card-foreground: 160 10% 15%;
+  --card: 43 28% 95%;
+  /* Soft Off-White (#F6F4EF) */
+  --card-foreground: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
 
-  --popover: 40 20% 97%;
-  --popover-foreground: 160 10% 15%;
+  --popover: 43 28% 95%;
+  /* Soft Off-White (#F6F4EF) */
+  --popover-foreground: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
 
-  --border: 35 10% 85%;
-  --input: 35 10% 85%;
-  --ring: 160 30% 25%;
+  --border: 35 31% 77%;
+  /* Warm Stone (#D6C7B2) */
+  --input: 35 31% 77%;
+  /* Warm Stone (#D6C7B2) */
+  --ring: 144 33% 18%;
+  /* Deep Forest Green (#1F3D2B) */
 
   --radius: 0.2rem;
 }

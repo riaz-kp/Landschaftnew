@@ -9,13 +9,18 @@ const stats = [
 
 export function Stats() {
     return (
-        <section className="py-20 border-y bg-background">
+        <section className="py-16 md:py-28 bg-secondary/10 relative z-10 w-full">
             <Container>
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-8 md:gap-12 md:grid-cols-4">
                     {stats.map((stat) => (
-                        <div key={stat.label} className="text-center">
-                            <div className="text-4xl font-light text-primary sm:text-5xl">{stat.value}</div>
-                            <div className="mt-2 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                        <div
+                            key={stat.label}
+                            className="flex flex-col items-center justify-center text-center group transition-transform duration-500 hover:-translate-y-1"
+                        >
+                            <div className="text-4xl sm:text-5xl lg:text-6xl font-light text-primary transition-colors duration-500 group-hover:text-foreground leading-none">
+                                {stat.value}
+                            </div>
+                            <div className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground/60 group-hover:text-primary transition-colors duration-500">
                                 {stat.label}
                             </div>
                         </div>

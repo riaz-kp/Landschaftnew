@@ -1,73 +1,103 @@
 import { Container } from "@/components/layout/container"
 import { ContactForm } from "@/components/contact/contact-form"
-import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react"
+import { MapPin, Phone, Mail, Instagram } from "lucide-react"
 
 export default function ContactPage() {
     return (
-        <div className="flex flex-col min-h-screen">
-            <section className="pt-32 pb-16 bg-background">
-                <Container className="text-center">
-                    <h1 className="text-4xl font-light text-foreground sm:text-5xl md:text-6xl">Get in Touch</h1>
-                    <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-                        Let's discuss how we can transform your landscape.
-                    </p>
-                </Container>
-            </section>
-
-            <section className="pb-24">
+        <div className="flex flex-col min-h-screen bg-background">
+            {/* Hero Section */}
+            <section className="relative pt-40 pb-24 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(122,139,111,0.1),transparent)] pointer-events-none" />
                 <Container>
-                    <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
-                        {/* Contact Info */}
-                        <div className="space-y-8">
-                            <div>
-                                <h2 className="text-2xl font-light text-foreground mb-6">Contact Information</h2>
-                                <div className="space-y-4">
-                                    <div className="flex items-start gap-4">
-                                        <MapPin className="h-6 w-6 text-primary mt-1" />
-                                        <div>
-                                            <p className="font-medium text-foreground">Landschaft</p>
-                                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" className="text-muted-foreground">2nd Floor, Watani Complex, Kondotty (Kizhisseri) <br />Kerala, India 673641</a>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center gap-4">
-                                        <Phone className="h-6 w-6 text-primary" />
-                                        <a href="tel:+919645333700" className="text-muted-foreground hover:text-primary transition-colors">+91 9645 333 700</a>
-                                    </div>
-
-                                    <div className="flex items-center gap-4">
-                                        <Mail className="h-6 w-6 text-primary" />
-                                        <a href="mailto:teamlandschaft@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">teamlandschaft@gmail.com</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="pt-8 border-t">
-                                <h2 className="text-xl font-light text-foreground mb-4">Follow Us</h2>
-                                <div className="flex gap-4">
-                                    <a href="https://www.instagram.com/teamlandschaft" className="p-3 bg-muted rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-                                        <Instagram className="h-5 w-5" />
-                                    </a>
-                                    <a href="#" className="p-3 bg-muted rounded-full text-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-                                        <Linkedin className="h-5 w-5" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Form */}
-                        <div className="bg-background border rounded-lg p-8 shadow-sm">
-                            <h2 className="text-2xl font-light text-foreground mb-6">Send us a message</h2>
-                            <ContactForm />
-                        </div>
+                    <div className="max-w-3xl">
+                        <h1 className="text-4xl font-light tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-8">
+                            Let's bring your <span className="text-accent italic">vision</span> to life.
+                        </h1>
+                        <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                            
+                        </p>
                     </div>
                 </Container>
             </section>
 
-            {/* Map Embed Placeholder */}
-            <div className="h-96 w-full bg-neutral-200 flex items-center justify-center text-muted-foreground">
-                Google Map Embed
-            </div>
+            <section className="pb-32">
+                <Container>
+                    <div className="grid gap-16 lg:grid-cols-12">
+                        {/* Contact Info - Left Column (5/12) */}
+                        <div className="lg:col-span-5 space-y-12">
+                            <div>
+                                <h2 className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase mb-8">Contact Details</h2>
+                                <div className="space-y-10">
+                                    <div className="group flex items-start gap-6">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                                            <MapPin className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Visit Our Studio</p>
+                                            <a
+                                                href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-lg font-light text-foreground hover:text-accent transition-colors block leading-snug"
+                                            >
+                                                2nd Floor, Watani Complex, <br />
+                                                Kondotty (Kizhisseri), <br />
+                                                Kerala, India 673641
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-6 group">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                                            <Phone className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Call Us</p>
+                                            <a href="tel:+919645333700" className="text-xl font-light text-foreground hover:text-accent transition-colors">
+                                                +91 9645 333 700
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-6 group">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                                            <Mail className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Email Us</p>
+                                            <a href="mailto:teamlandschaft@gmail.com" className="text-xl font-light text-foreground hover:text-accent transition-colors break-all">
+                                                teamlandschaft@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-12 border-t border-border/50">
+                                <h2 className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary/80 uppercase mb-6">Socials</h2>
+                                <div className="flex gap-4">
+                                    <a
+                                        href="https://www.instagram.com/teamlandschaft"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                                    >
+                                        <Instagram className="h-5 w-5" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Form - Right Column (7/12) */}
+                        <div className="lg:col-span-7">
+                            <div className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <h2 className="text-2xl font-light text-foreground mb-8">Send a message</h2>
+                                <ContactForm />
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </section>
         </div>
     )
 }
