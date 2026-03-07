@@ -10,7 +10,7 @@ export function Footer() {
     if (pathname?.startsWith("/admin")) return null
 
     return (
-        <footer className="bg-primary pt-12 pb-6 md:py-16 text-primary-foreground">
+        <footer className="bg-primary pt-12 pb-6 md:pt-16 md:pb-8 text-primary-foreground">
             <Container>
                 <div className="grid gap-y-12 gap-x-8 grid-cols-2 lg:grid-cols-4">
                     <div className="col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start">
@@ -71,7 +71,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-6 md:mt-20 md:flex-row md:gap-0">
+                <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-6 md:mt-10 md:pt-4 md:flex-row md:gap-0">
                     <p className="text-[10px] text-primary-foreground/50 sm:text-xs">
                         © {new Date().getFullYear()} Landschaft. All rights reserved.
                     </p>

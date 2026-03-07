@@ -136,20 +136,24 @@ export function Navbar() {
                                 className="fixed inset-0 z-[9999] flex flex-col bg-background h-[100dvh] w-screen"
                             >
                                 {/* Mobile Header for Close Button */}
-                                <div className="flex items-center justify-between p-4 px-6 border-b h-16">
-                                    <span
-                                        className="text-xl font-bold tracking-[0.05em] text-primary pb-1"
-                                        style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-                                    >
-                                        LANDSCHAFT
-                                    </span>
-                                    <button
-                                        className="p-2 -mr-2 text-foreground focus:outline-none"
-                                        onClick={() => setIsOpen(false)}
-                                        aria-label="Close menu"
-                                    >
-                                        <X className="h-6 w-6" />
-                                    </button>
+                                <div className="border-b">
+                                    <Container className="flex h-16 items-center justify-between">
+                                        <Link href="/" className="flex items-center space-x-2 z-50 relative group" onClick={() => setIsOpen(false)}>
+                                            <span
+                                                className="text-xl font-bold tracking-[0.05em] text-primary transition-opacity group-hover:opacity-80 pb-1"
+                                                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                                            >
+                                                LANDSCHAFT
+                                            </span>
+                                        </Link>
+                                        <button
+                                            className="p-2 -mr-2 text-foreground focus:outline-none"
+                                            onClick={() => setIsOpen(false)}
+                                            aria-label="Close menu"
+                                        >
+                                            <X className="h-6 w-6" />
+                                        </button>
+                                    </Container>
                                 </div>
 
                                 <nav className="flex-1 flex flex-col justify-center gap-4 p-6 overflow-hidden">

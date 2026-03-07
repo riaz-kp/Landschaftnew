@@ -14,8 +14,7 @@ export default function ContactPage() {
                             Let's bring your <span className="text-accent italic">vision</span> to life.
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                            Whether you're looking to transform a private garden or a commercial landscape,
-                            our team is ready to help you create something extraordinary.
+                            
                         </p>
                     </div>
                 </Container>
