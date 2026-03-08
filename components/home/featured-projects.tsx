@@ -60,26 +60,28 @@ export async function FeaturedProjects() {
                                                 </div>
                                             )}
 
-                                            {/* Always Visible Clickable Arrow on Image */}
-                                            <div className="absolute bottom-4 right-4 z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1">
-                                                <div className="flex h-10 w-10 md:h-8 md:w-8 items-center justify-center rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white shadow-lg group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-transparent transition-all">
-                                                    <ArrowRight className="h-4 w-4 md:h-3 md:w-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                            {/* Bottom Info Overlay */}
+                                            <div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
+                                                <div className="flex items-end justify-between gap-4">
+                                                    <div className="flex-1">
+                                                        <h3 className="text-lg lg:text-xl font-medium text-white leading-tight tracking-tight">
+                                                            {project.title}
+                                                        </h3>
+                                                        {project.location && (
+                                                            <p className="mt-2 text-[10px] text-white/60 font-medium uppercase tracking-[0.15em]">
+                                                                {project.location}
+                                                            </p>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Arrow integrated into the info row or next to it */}
+                                                    <div className="shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1">
+                                                        <div className="flex h-10 w-10 md:h-9 md:w-9 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-transparent transition-all">
+                                                            <ArrowRight className="h-4 w-4 md:h-4 md:w-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div className="pt-5 flex flex-col flex-1">
-                                            <h3 className="text-lg lg:text-xl font-medium text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
-                                                {project.title}
-                                            </h3>
-                                            {project.location && (
-                                                <div className="mt-3 flex items-center gap-3">
-                                                    <span className="w-8 h-[1px] bg-primary/30"></span>
-                                                    <p className="text-xs text-muted-foreground/80 font-medium uppercase tracking-[0.15em]">
-                                                        {project.location}
-                                                    </p>
-                                                </div>
-                                            )}
                                         </div>
                                     </div>
                                 </Link>
