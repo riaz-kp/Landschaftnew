@@ -23,8 +23,8 @@ export async function FeaturedProjects() {
                                     Featured Projects
                                 </h2>
                             </div>
-                            <Button variant="ghost" asChild className="hidden sm:inline-flex group h-12 px-6 text-sm font-medium uppercase tracking-widest">
-                                <Link href="/projects">
+                            <Button asChild className="hidden sm:inline-flex group rounded-full shadow-sm hover:shadow-md transition-all duration-300 h-11 px-6 font-medium">
+                                <Link href="/projects" className="flex items-center">
                                     View All Projects
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
@@ -87,8 +87,8 @@ export async function FeaturedProjects() {
                         </div>
 
                         <div className="mt-8 text-center sm:hidden">
-                            <Button variant="outline" asChild className="group rounded-full">
-                                <Link href="/projects">
+                            <Button asChild className="group rounded-full shadow-sm hover:shadow-md transition-all duration-300 h-11 px-6 font-medium">
+                                <Link href="/projects" className="flex items-center">
                                     View All Projects
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
