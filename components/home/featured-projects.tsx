@@ -31,7 +31,7 @@ export async function FeaturedProjects() {
                             </Button>
                         </div>
 
-                        <div className="grid gap-8 md:gap-x-8 md:gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid gap-8 md:gap-10 lg:grid-cols-3">
                             {featuredProjects.map((project) => (
                                 <Link key={project.slug} href={`/projects/${project.slug}`} className="group block h-full">
                                     <div className="relative flex flex-col h-full bg-transparent transition-all duration-500">
