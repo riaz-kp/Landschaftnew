@@ -69,7 +69,7 @@ export async function FeaturedProjects() {
                                         </div>
 
                                         <div className="pt-5 flex flex-col flex-1">
-                                            <h3 className="text-xl lg:text-2xl font-medium text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
+                                            <h3 className="text-lg lg:text-xl font-medium text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
                                                 {project.title}
                                             </h3>
                                             {project.location && (
