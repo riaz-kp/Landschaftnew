@@ -78,12 +78,12 @@ export function ContactForm() {
         )
     }
 
-    const inputClasses = "w-full bg-transparent border-b border-border py-3 px-0 text-foreground focus:outline-none focus:border-accent transition-colors duration-300 placeholder:text-muted-foreground/50"
+    const inputClasses = "w-full bg-transparent border-b border-border py-2 px-0 text-foreground focus:outline-none focus:border-accent transition-colors duration-300 placeholder:text-muted-foreground/50"
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-10">
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-                <div className="space-y-2 group">
+        <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div className="space-y-1 group">
                     <label htmlFor="name" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
                         Name
                     </label>
@@ -96,7 +96,7 @@ export function ContactForm() {
                         placeholder="John Doe"
                     />
                 </div>
-                <div className="space-y-2 group">
+                <div className="space-y-1 group">
                     <label htmlFor="email" className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 group-focus-within:text-accent transition-colors">
                         Email
                     </label>
@@ -135,7 +135,7 @@ export function ContactForm() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className={inputClasses + " min-h-[100px] resize-none"}
+                    className={inputClasses + " min-h-[60px] resize-none"}
                     placeholder="Tell us about your project..."
                 />
             </div>
@@ -143,7 +143,7 @@ export function ContactForm() {
             <Button
                 type="submit"
                 size="lg"
-                className="w-full sm:w-auto rounded-full px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                className="w-full sm:w-auto rounded-full px-10 py-4 bg-primary hover:bg-primary/90 text-primary-foreground group"
                 disabled={isSubmitting}
             >
                 {isSubmitting ? (
