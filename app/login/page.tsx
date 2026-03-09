@@ -57,10 +57,10 @@ export default function LoginPage() {
                                 alt="Landschaft Logo"
                                 width={36}
                                 height={36}
-                                className="object-contain transition-opacity group-hover:opacity-80 pb-1.5"
+                                className="object-contain transition-opacity group-hover:opacity-80"
                             />
                             <CardTitle
-                                className="text-2xl font-bold tracking-[0.05em] text-slate-900 uppercase transition-opacity group-hover:opacity-80 pb-1"
+                                className="text-2xl font-bold tracking-[0.05em] text-slate-900 uppercase transition-opacity group-hover:opacity-80 leading-none"
                                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                             >
                                 LANDSCHAFT

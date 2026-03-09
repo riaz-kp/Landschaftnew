@@ -62,10 +62,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 alt="Landschaft Logo"
                                 width={30}
                                 height={30}
-                                className="object-contain transition-opacity group-hover:opacity-80 pb-1.5"
+                                className="object-contain transition-opacity group-hover:opacity-80"
                             />
                             <span
-                                className="text-xl font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 pb-1 uppercase"
+                                className="text-xl font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 leading-none uppercase"
                                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                             >
                                 LANDSCHAFT
@@ -140,18 +140,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                {/* Mobile Header */}
-                <header className="lg:hidden h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
+                <header className="lg:hidden h-20 bg-white border-b border-slate-200 flex items-end justify-between px-6 pb-4 shrink-0">
                     <Link href="/admin" className="flex items-end gap-2 group">
                         <Image
                             src="/logo.svg"
                             alt="Landschaft Logo"
-                            width={24}
-                            height={24}
-                            className="object-contain transition-opacity group-hover:opacity-80 pb-1"
+                            width={28}
+                            height={28}
+                            className="object-contain transition-opacity group-hover:opacity-80 pb-0"
                         />
                         <span
-                            className="text-lg font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 pb-0.5 uppercase"
+                            className="text-xl font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 leading-none uppercase"
                             style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                         >
                             LANDSCHAFT
@@ -159,7 +158,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     </Link>
                     <button
                         onClick={() => setIsSidebarOpen(true)}
-                        className="p-2 -mr-2 text-slate-600 focus:outline-none hover:bg-slate-50 rounded-lg"
+                        className="p-2 -mr-2 text-slate-600 focus:outline-none hover:bg-slate-50 rounded-lg mb-[-8px]"
                     >
                         <Menu className="w-6 h-6" />
                     </button>
