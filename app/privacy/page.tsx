@@ -97,7 +97,7 @@ export default function PrivacyPage() {
                             <div className="mt-8 p-8 border border-border bg-secondary/5 rounded-none inline-block w-full sm:w-auto">
                                 <p className="font-semibold text-foreground text-lg mb-2">Landschaft Environmental Planning Studio</p>
                                 <p className="text-sm text-muted-foreground flex flex-col gap-1">
-                                    <span>Kondotty, Kerala</span>
+                                    <span>Kondotty & Calicut, Kerala</span>
                                     <span>Email: teamlandschaft@gmail.com</span>
                                     <span>Phone: +91 9645 333 700</span>
                                 </p>
