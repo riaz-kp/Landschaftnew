@@ -14,9 +14,9 @@ export default function Home() {
       <Hero />
       <FadeIn><Philosophy /></FadeIn>
       <FadeIn><AboutSnapshot /></FadeIn>
+      <FadeIn><Stats /></FadeIn>
       <FadeIn><ServicesGrid /></FadeIn>
       <FadeIn><FeaturedProjects /></FadeIn>
-      <FadeIn><Stats /></FadeIn>
       <FadeIn><WhyLandschaft /></FadeIn>
       <FadeIn><CTA /></FadeIn>
     </div>
