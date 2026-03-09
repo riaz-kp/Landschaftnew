@@ -14,7 +14,7 @@ export default function ContactPage() {
                             Let's bring your <span className="text-accent italic">vision</span> to life.
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                            
+
                         </p>
                     </div>
                 </Container>
@@ -32,18 +32,34 @@ export default function ContactPage() {
                                         <div className="flex-shrink-0 w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                                             <MapPin className="h-5 w-5" />
                                         </div>
-                                        <div>
-                                            <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Visit Our Studio</p>
-                                            <a
-                                                href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-lg font-light text-foreground hover:text-accent transition-colors block leading-snug"
-                                            >
-                                                2nd Floor, Watani Complex, <br />
-                                                Kondotty (Kizhisseri), <br />
-                                                Kerala, India 673641
-                                            </a>
+                                        <div className="space-y-8">
+                                            <div>
+                                                <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Kondotty Studio</p>
+                                                <a
+                                                    href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-lg font-light text-foreground hover:text-accent transition-colors block leading-snug"
+                                                >
+                                                    2nd Floor, Watani Complex, <br />
+                                                    Kondotty (Kizhisseri), <br />
+                                                    Kerala 673641
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/80 mb-2">Calicut Studio</p>
+                                                <a
+                                                    href="https://www.google.com/maps/search/Chevarambalam+Road,+Malaparamba,+Calicut,+Kerala+673009"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-lg font-light text-foreground hover:text-accent transition-colors block leading-snug"
+                                                >
+                                                    13/2306 Near Blum, <br />
+                                                    Chevarambalam Road, <br />
+                                                    Malaparamba, Calicut, <br />
+                                                    Kerala 673009
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 

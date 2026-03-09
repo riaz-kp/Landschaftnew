@@ -56,15 +56,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <div className="flex flex-col h-full">
                     {/* Sidebar Header */}
                     <div className="h-16 flex items-center px-6 border-b border-slate-100">
-                        <Link href="/" className="flex items-center gap-3">
+                        <Link href="/admin" className="flex items-end gap-2.5 group">
                             <Image
                                 src="/logo.svg"
                                 alt="Landschaft Logo"
-                                width={32}
-                                height={32}
-                                className="object-contain"
+                                width={30}
+                                height={30}
+                                className="object-contain transition-opacity group-hover:opacity-80"
                             />
-                            <span className="font-black tracking-tighter text-xl text-slate-900 uppercase">LANDSCHAFT</span>
+                            <span
+                                className="text-xl font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 leading-none uppercase"
+                                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                            >
+                                LANDSCHAFT
+                            </span>
                         </Link>
                     </div>
 
@@ -135,21 +140,25 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                {/* Mobile Header */}
-                <header className="lg:hidden h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
-                    <Link href="/" className="flex items-center gap-2.5">
+                <header className="lg:hidden h-20 bg-white border-b border-slate-200 flex items-end justify-between px-6 pb-4 shrink-0">
+                    <Link href="/admin" className="flex items-end gap-2 group">
                         <Image
                             src="/logo.svg"
                             alt="Landschaft Logo"
-                            width={24}
-                            height={24}
-                            className="object-contain"
+                            width={28}
+                            height={28}
+                            className="object-contain transition-opacity group-hover:opacity-80 pb-0"
                         />
-                        <span className="font-bold tracking-tight text-primary text-lg uppercase">LANDSCHAFT</span>
+                        <span
+                            className="text-xl font-bold tracking-[0.05em] text-slate-900 transition-opacity group-hover:opacity-80 leading-none uppercase"
+                            style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                        >
+                            LANDSCHAFT
+                        </span>
                     </Link>
                     <button
                         onClick={() => setIsSidebarOpen(true)}
-                        className="p-2 -mr-2 text-slate-600 focus:outline-none hover:bg-slate-50 rounded-lg"
+                        className="p-2 -mr-2 text-slate-600 focus:outline-none hover:bg-slate-50 rounded-lg mb-[-8px]"
                     >
                         <Menu className="w-6 h-6" />
                     </button>
