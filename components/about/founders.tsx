@@ -13,6 +13,12 @@ const founders = [
         role: "Co-Founder & Design Director",
         quote: "Clarity in design creates landscapes that feel natural, purposeful, and timeless.",
         image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772707193/about-founder-anees_uackbl.jpg"
+    },
+    {
+        name: "Ahmad Thameem",
+        role: "Associate Partner",
+        quote: "Sustainable landscapes are the result of thoughtful planning and a deep understanding of the natural environment.",
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1773072160/about-partner-thameem_lftvbd.jpg"
     }
 ]
 
@@ -21,10 +27,10 @@ export function Founders() {
         <section className="py-24 bg-background">
             <Container>
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-light text-foreground sm:text-4xl">The Founders</h2>
-                    <p className="mt-4 text-muted-foreground">The visionaries behind Landschaft.</p>
+                    <h2 className="text-3xl font-light text-foreground sm:text-4xl">Founders & Partners</h2>
+                    <p className="mt-4 text-muted-foreground">The team driving the vision of Landschaft.</p>
                 </div>
-                <div className="grid gap-12 md:grid-cols-2 lg:gap-24 max-w-5xl mx-auto">
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 max-w-7xl mx-auto">
                     {founders.map((founder) => (
                         <div key={founder.name} className="flex flex-col items-center text-center">
                             <div className="relative w-64 h-80 bg-neutral-100 rounded-lg overflow-hidden mb-8 transition-all duration-500">

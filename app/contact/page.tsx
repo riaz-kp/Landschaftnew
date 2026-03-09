@@ -106,8 +106,8 @@ export default function ContactPage() {
 
                         {/* Form - Right Column (7/12) */}
                         <div className="lg:col-span-7">
-                            <div className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                                <h2 className="text-2xl font-light text-foreground mb-8">Send a message</h2>
+                            <div className="bg-card border border-border rounded-3xl p-6 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <h2 className="text-2xl font-light text-foreground mb-6">Send a message</h2>
                                 <ContactForm />
                             </div>
                         </div>
