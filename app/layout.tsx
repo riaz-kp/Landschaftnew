@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IE", // Or en_IN
   },
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
