@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Container } from "@/components/layout/container"
 
 const services = [
-    { id: "design", title: "Design & Consulting", description: "Master planning and site analysis.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1773048879/service-palnning_lvmv9n.png" },
+    { id: "design", title: "Design & Consulting", description: "Master planning and site analysis.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_design_eb6qre.png" },
     { id: "hardscape", title: "Hardscaping", description: "Patios, pathways, and structures.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_hardscaping_l38z4w.png" },
     { id: "softscape", title: "Softscaping", description: "Native planting and meadows.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_softscaping_slm1hx.png" },
     { id: "water", title: "Water Features", description: "Ponds, pools, and rain gardens.", image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772797727/home_service_water_zeh7wa.png" },
