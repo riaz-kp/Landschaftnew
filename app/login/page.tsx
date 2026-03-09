@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff, Loader2, Lock, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function LoginPage() {
     const [error, setError] = useState<string | null>(null);
@@ -48,22 +49,23 @@ export default function LoginPage() {
             <Card className="w-full max-w-md border-slate-200/60 shadow-xl backdrop-blur-sm bg-white/80 overflow-hidden relative z-10">
                 <div className="h-1.5 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
 
-                <CardHeader className="space-y-4 pt-8 pb-6 text-center">
-                    <div className="flex justify-center mb-2">
-                        <div className="bg-slate-900 p-3 rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                <CardHeader className="space-y-4 pt-10 pb-6 text-center">
+                    <div className="space-y-2">
+                        <Link href="/admin" className="flex items-end justify-center gap-3 group">
                             <Image
                                 src="/logo.svg"
                                 alt="Landschaft Logo"
-                                width={40}
-                                height={40}
-                                className="brightness-0 invert p-1"
+                                width={36}
+                                height={36}
+                                className="object-contain transition-opacity group-hover:opacity-80"
                             />
-                        </div>
-                    </div>
-                    <div className="space-y-1">
-                        <CardTitle className="text-2xl font-black tracking-tight text-slate-900 uppercase">
-                            Landschaft Admin
-                        </CardTitle>
+                            <CardTitle
+                                className="text-2xl font-bold tracking-[0.05em] text-slate-900 uppercase transition-opacity group-hover:opacity-80 leading-none"
+                                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+                            >
+                                LANDSCHAFT
+                            </CardTitle>
+                        </Link>
                         <CardDescription className="text-slate-500 font-medium tracking-wide">
                             Sign in to manage your workspace
                         </CardDescription>
@@ -139,9 +141,9 @@ export default function LoginPage() {
                 </form>
             </Card>
 
-            <p className="fixed bottom-8 text-slate-400 text-xs font-medium tracking-widest uppercase">
+            {/* <p className="fixed bottom-8 text-slate-400 text-xs font-medium tracking-widest uppercase">
                 © 2024 Landschaft Agency
-            </p>
+            </p> */}
         </div>
     );
 }

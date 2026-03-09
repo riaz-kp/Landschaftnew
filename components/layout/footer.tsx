@@ -61,7 +61,14 @@ export function Footer() {
                     <div className="col-span-2 lg:col-span-1 flex flex-col gap-5">
                         <h3 className="font-semibold text-secondary uppercase tracking-[0.25em] text-[11px] sm:text-xs">Contact</h3>
                         <div className="flex flex-col gap-3 md:gap-4 text-xs sm:text-sm text-primary-foreground/60">
-                            <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Kondotty, Kerala</a>
+                            <div className="flex flex-col gap-2">
+                                <a href="https://maps.app.goo.gl/SMJx9CoePChfzdMA9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors leading-relaxed">
+                                    Kondotty, Malappuram
+                                </a>
+                                <a href="https://www.google.com/maps/search/Chevarambalam+Road,+Malaparamba,+Calicut,+Kerala+673009" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors leading-relaxed">
+                                    Malaparamba, Calicut
+                                </a>
+                            </div>
                             <a href="tel:+91 9645 333 700" className="hover:text-secondary transition-colors">+91 9645 333 700</a>
                             <a href="mailto:teamlandschaft@gmail.com" className="hover:text-secondary transition-colors">teamlandschaft@gmail.com</a>
                             <div className="flex gap-6 mt-1">
