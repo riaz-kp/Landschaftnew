@@ -7,7 +7,7 @@ const services = [
         title: "Design & Consulting",
         description: "Our design process is rooted in a deep understanding of the site's ecology and your lifestyle. We move from broad conceptual master planning to intricate planting details.",
         features: ["Site analysis & Ecology study", "Concept development", "Master planning", "Planting design", "Working drawings"],
-        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772709638/service-palnning_nobzig.jpg"
+        image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1773048879/service-palnning_lvmv9n.png"
     },
     {
         id: "hardscape",
