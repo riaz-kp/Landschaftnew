@@ -22,23 +22,23 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
 
     return (
         <div className="min-h-screen bg-slate-50/50 pb-12">
-            <div className="bg-white border-b sticky top-0 z-10 shadow-sm">
-                <div className="px-6 py-4 flex items-center justify-between mx-auto max-w-6xl">
-                    <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="sm" asChild className="hover:bg-slate-100">
+            <div className="bg-white border-b sticky top-0 z-10 shadow-sm overflow-hidden">
+                <div className="px-4 py-3 flex items-center justify-between mx-auto max-w-6xl gap-2">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                        <Button variant="ghost" size="sm" asChild className="text-slate-600 hover:text-slate-900 hover:bg-slate-100 shrink-0 group">
                             <Link href="/admin">
-                                <ArrowLeft className="h-4 w-4 mr-2 text-slate-500" /> Back
+                                <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" /> Back
                             </Link>
                         </Button>
-                        <div className="h-4 w-[1px] bg-slate-200" />
-                        <h1 className="text-lg font-bold text-slate-900 truncate max-w-[150px] md:max-w-md">{project.title}</h1>
+                        <div className="h-4 w-[1px] bg-slate-200 shrink-0" />
+                        <h1 className="text-lg font-bold text-slate-900 truncate">{project.title}</h1>
                         {project.featured && (
-                            <Badge variant="secondary" className="bg-yellow-100 text-yellow-700 border-yellow-200 ml-2">
+                            <Badge variant="secondary" className="bg-yellow-100 text-yellow-700 border-yellow-200 shrink-0">
                                 Featured
                             </Badge>
                         )}
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 shrink-0">
                         <Button variant="outline" size="sm" asChild className="hidden sm:flex border-slate-200">
                             <Link href={`/projects/${project.slug}`} target="_blank">
                                 <ExternalLink className="h-3.5 w-3.5 mr-2 text-slate-500" /> Public

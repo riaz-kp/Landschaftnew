@@ -22,9 +22,9 @@ export default async function EditProjectPage({ params }: PageProps) {
     return (
         <div className="p-6 md:p-8 space-y-6 max-w-5xl mx-auto">
             <div className="flex items-center gap-4">
-                <Button variant="ghost" size="sm" asChild>
+                <Button variant="ghost" size="sm" asChild className="text-slate-600 hover:text-slate-900 hover:bg-slate-100 group">
                     <Link href={`/admin/projects/${slug}`}>
-                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
                         Back to Details
                     </Link>
                 </Button>

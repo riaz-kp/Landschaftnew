@@ -40,7 +40,7 @@ function ImageDropzone({ onDrop, onRemove, accept, multiple, label, currentImage
                                     e.stopPropagation();
                                     onRemove(i);
                                 }}
-                                className="absolute top-0.5 right-0.5 bg-red-500 text-white rounded-full p-0.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                                className="absolute top-0.5 right-0.5 bg-red-500 text-white rounded-full p-0.5 shadow-sm"
                             >
                                 <X className="w-3 h-3" />
                             </button>
