@@ -3,6 +3,9 @@ import { Container } from "@/components/layout/container"
 export const metadata = {
     title: "Terms of Service | Landschaft",
     description: "Terms and conditions governing your use of the Landschaft website and services.",
+    alternates: {
+        canonical: "/terms",
+    },
 }
 
 export default function TermsPage() {

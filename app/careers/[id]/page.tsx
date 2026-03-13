@@ -5,6 +5,22 @@ import Link from "next/link"
 import { getCareerById } from "@/lib/data/careers"
 import { ApplicationForm } from "@/components/careers/application-form"
 import { notFound } from "next/navigation"
+import { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params
+    const career = await getCareerById(id)
+
+    if (!career) return {}
+
+    return {
+        title: `${career.title} | Careers`,
+        description: career.description.substring(0, 160),
+        alternates: {
+            canonical: `/careers/${id}`,
+        },
+    }
+}
 
 export default async function CareerPostPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params

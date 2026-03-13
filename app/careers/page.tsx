@@ -3,6 +3,15 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Clock, Briefcase, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { getCareers } from "@/lib/data/careers"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Careers | Join the Landschaft Team",
+    description: "Explore career opportunities at Landschaft. We're looking for talented individuals passionate about landscape architecture and environmental planning in Kerala.",
+    alternates: {
+        canonical: "/careers",
+    },
+}
 
 export default async function CareersPage() {
     const careers = await getCareers()

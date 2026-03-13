@@ -1,6 +1,15 @@
 import { Container } from "@/components/layout/container"
 import { getProjects } from "@/lib/data/projects"
 import { ProjectList } from "@/components/projects/project-list"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Our Projects | Landscape Architecture & Environmental Design Portfolio",
+    description: "Explore our portfolio of landscape architecture and environmental planning projects across Kerala. Sustainable, design-led solutions for luxury residences to commercial spaces.",
+    alternates: {
+        canonical: "/projects",
+    },
+}
 
 export default async function ProjectsPage() {
     const projects = await getProjects()
