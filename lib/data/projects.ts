@@ -14,6 +14,8 @@ export interface Project {
     gallery: string[];
     featured?: boolean;
     published?: boolean;
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 export async function getProjects(): Promise<Project[]> {

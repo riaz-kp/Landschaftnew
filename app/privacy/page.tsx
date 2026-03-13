@@ -3,6 +3,9 @@ import { Container } from "@/components/layout/container"
 export const metadata = {
     title: "Privacy Policy | Landschaft",
     description: "Our commitment to protecting your privacy and managing your data at Landschaft.",
+    alternates: {
+        canonical: "/privacy",
+    },
 }
 
 export default function PrivacyPage() {

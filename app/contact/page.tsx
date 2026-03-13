@@ -1,6 +1,15 @@
 import { Container } from "@/components/layout/container"
 import { ContactForm } from "@/components/contact/contact-form"
 import { MapPin, Phone, Mail, Instagram } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Contact Us | Landscape Design Studios in Kondotty & Calicut",
+    description: "Connect with Landschaft for your environmental planning and landscape design needs. Visit our studios in Kondotty and Calicut, or reach out to us online.",
+    alternates: {
+        canonical: "/contact",
+    },
+}
 
 export default function ContactPage() {
     return (

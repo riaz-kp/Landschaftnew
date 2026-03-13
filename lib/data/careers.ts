@@ -12,6 +12,7 @@ export interface Career {
     requirements: string[];
     published: boolean;
     createdAt: string;
+    updatedAt?: string;
 }
 
 export async function getCareers(): Promise<Career[]> {
