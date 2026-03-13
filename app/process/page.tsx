@@ -1,5 +1,14 @@
 import { Container } from "@/components/layout/container"
 import { Search, PenTool, FileText, Shovel, Sprout } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Our Process | Discovery to Execution",
+    description: "Learn about Landschaft's design and execution process. We follow a structured approach from discovery and site study to handover and long-term maintenance.",
+    alternates: {
+        canonical: "/process",
+    },
+}
 
 const steps = [
     {

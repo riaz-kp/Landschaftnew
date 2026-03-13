@@ -4,6 +4,27 @@ import { ArrowLeft, MapPin, Tag } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { getProjects, getProjectBySlug } from "@/lib/data/projects"
+import { Metadata } from "next"
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params
+    const project = await getProjectBySlug(slug)
+
+    if (!project) return {}
+
+    return {
+        title: `${project.title} | Landscape Projects`,
+        description: project.description?.substring(0, 160) || `View details of our landscape design project: ${project.title}.`,
+        openGraph: {
+            title: project.title,
+            description: project.description?.substring(0, 160),
+            images: project.image ? [{ url: project.image }] : [],
+        },
+        alternates: {
+            canonical: `/projects/${slug}`,
+        },
+    }
+}
 
 interface PageProps {
     params: Promise<{
@@ -106,6 +127,26 @@ export default async function ProjectPage({ params }: PageProps) {
                     </div>
                 </div>
             </Container >
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        "name": project.title,
+                        "description": project.description,
+                        "image": project.image,
+                        "locationCreated": {
+                            "@type": "Place",
+                            "name": project.location
+                        },
+                        "creator": {
+                            "@type": "Organization",
+                            "name": "Landschaft"
+                        }
+                    })
+                }}
+            />
         </article >
     )
 }

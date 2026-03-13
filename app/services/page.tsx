@@ -1,5 +1,14 @@
 import { Container } from "@/components/layout/container"
 import { ServiceSection } from "@/components/services/service-section"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Landscape Services | Design, Hardscaping & Maintenance",
+    description: "Explore our comprehensive landscape architecture services in Kerala. From master planning and hardscaping to softscaping and long-term maintenance.",
+    alternates: {
+        canonical: "/services",
+    },
+}
 
 const services = [
     {

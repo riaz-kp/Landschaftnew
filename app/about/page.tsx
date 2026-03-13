@@ -3,7 +3,16 @@ import { MissionVision } from "@/components/about/mission-vision"
 import { PhilosophyFull } from "@/components/about/philosophy-full"
 import { Founders } from "@/components/about/founders"
 import { TeamStructure } from "@/components/about/team-structure"
-import { AboutSnapshot } from "@/components/home/about-snapshot" // Reusing or create specific header
+import { AboutSnapshot } from "@/components/home/about-snapshot"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "About Us | Our Design Philosophy & Team",
+    description: "Learn about Landschaft, a design-led environmental planning studio in Kerala. Discover our mission, vision, and the team behind our sustainable landscape designs.",
+    alternates: {
+        canonical: "/about",
+    },
+}
 
 export default function AboutPage() {
     return (
