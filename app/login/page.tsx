@@ -54,7 +54,7 @@ export default function LoginPage() {
                         <Link href="/admin" className="flex items-end justify-center gap-3 group">
                             <Image
                                 src="/logo.svg"
-                                alt="Landschaft Logo"
+                                alt="Landschaft Landscape Architecture Company Logo"
                                 width={36}
                                 height={36}
                                 className="object-contain transition-opacity group-hover:opacity-80"

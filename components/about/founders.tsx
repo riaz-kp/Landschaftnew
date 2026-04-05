@@ -36,7 +36,7 @@ export function Founders() {
                             <div className="relative w-64 h-80 bg-neutral-100 rounded-lg overflow-hidden mb-8 transition-all duration-500">
                                 <Image
                                     src={founder.image}
-                                    alt={founder.name}
+                                    alt={`Portrait of ${founder.name}, ${founder.role} at Landschaft Landscape Architecture`}
                                     fill
                                     className="object-cover"
                                     sizes="256px"

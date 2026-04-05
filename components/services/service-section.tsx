@@ -21,7 +21,7 @@ export function ServiceSection({ title, description, features, image, id, revers
                     <div className={cn("relative aspect-[4/3] bg-neutral-100 rounded-lg overflow-hidden group", reversed ? "lg:col-start-2" : "")}>
                         <Image
                             src={image}
-                            alt={title}
+                            alt={`${title} - Landschaft Landscape Architecture Service`}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                             sizes="(max-width: 1024px) 100vw, 50vw"

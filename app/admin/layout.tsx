@@ -59,7 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                         <Link href="/admin" className="flex items-end gap-2.5 group">
                             <Image
                                 src="/logo.svg"
-                                alt="Landschaft Logo"
+                                alt="Landschaft Landscape Architecture Company Logo"
                                 width={30}
                                 height={30}
                                 className="object-contain transition-opacity group-hover:opacity-80"
@@ -144,7 +144,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <Link href="/admin" className="flex items-center gap-2 group">
                         <Image
                             src="/logo.svg"
-                            alt="Landschaft Logo"
+                            alt="Landschaft Landscape Architecture Company Logo"
                             width={24}
                             height={24}
                             className="object-contain transition-opacity group-hover:opacity-80"

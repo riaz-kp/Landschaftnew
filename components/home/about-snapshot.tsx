@@ -11,7 +11,7 @@ export function AboutSnapshot() {
             <div className="w-full md:absolute md:inset-y-0 md:left-0 md:w-[60%] lg:w-[50%] h-[400px] sm:h-[450px] md:h-auto relative">
                 <Image
                     src="https://res.cloudinary.com/dnsmrborw/image/upload/v1772708122/about-rooted-ecology_egleyi.jpg"
-                    alt="Rooted in Ecology, Driven by Design"
+                    alt="Landschaft landscape architecture design philosophy emphasizing ecology and precision"
                     fill
                     className="object-cover object-bottom"
                     sizes="(max-width: 768px) 100vw, 60vw"

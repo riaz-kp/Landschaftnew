@@ -48,7 +48,7 @@ export function ServicesGrid() {
                                 <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-background overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:scale-105">
                                     <Image
                                         src={service.image}
-                                        alt={service.title}
+                                        alt={`${service.title} - Landscape Design Service by Landschaft`}
                                         fill
                                         sizes="(max-width: 640px) 64px, 80px"
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"

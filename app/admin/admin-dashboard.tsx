@@ -166,7 +166,7 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
                             <Link href={`/admin/projects/${project.slug}`} className="relative aspect-[4/3] overflow-hidden bg-slate-100 block">
                                 <img
                                     src={project.image || "/placeholder.svg"}
-                                    alt={project.title}
+                                    alt={`Project thumbnail: ${project.title}`}
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
