@@ -45,6 +45,7 @@ export function Footer() {
                             <Link href="/projects" className="hover:text-secondary transition-colors">Projects</Link>
                             <Link href="/process" className="hover:text-secondary transition-colors">Process</Link>
                             <Link href="/careers" className="hover:text-secondary transition-colors">Careers</Link>
+                            <Link href="/faq" className="hover:text-secondary transition-colors">FAQ</Link>
                         </nav>
                     </div>
 
