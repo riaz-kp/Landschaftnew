@@ -116,7 +116,8 @@ export default function RootLayout({
                 "availableLanguage": "en"
               },
               "sameAs": [
-                "https://www.instagram.com/teamlandschaft"
+                "https://www.instagram.com/teamlandschaft",
+                "https://www.facebook.com/p/Landschaft-100067467157622/"
               ]
             })
           }}

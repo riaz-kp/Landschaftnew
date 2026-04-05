@@ -45,7 +45,6 @@ export function Footer() {
                             <Link href="/projects" className="hover:text-secondary transition-colors">Projects</Link>
                             <Link href="/process" className="hover:text-secondary transition-colors">Process</Link>
                             <Link href="/careers" className="hover:text-secondary transition-colors">Careers</Link>
-                            <Link href="/faq" className="hover:text-secondary transition-colors">FAQ</Link>
                         </nav>
                     </div>
 
@@ -74,6 +73,7 @@ export function Footer() {
                             <a href="mailto:teamlandschaft@gmail.com" className="hover:text-secondary transition-colors">teamlandschaft@gmail.com</a>
                             <div className="flex gap-6 mt-1">
                                 <a href="https://www.instagram.com/teamlandschaft" target="_blank" rel="noopener noreferrer" className="text-[10px] md:text-xs uppercase tracking-wider hover:text-secondary transition-colors">Instagram</a>
+                                <a href="https://www.facebook.com/p/Landschaft-100067467157622/" target="_blank" rel="noopener noreferrer" className="text-[10px] md:text-xs uppercase tracking-wider hover:text-secondary transition-colors">Facebook</a>
                             </div>
                         </div>
                     </div>
