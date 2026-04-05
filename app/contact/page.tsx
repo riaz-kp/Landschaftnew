@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/container"
 import { ContactForm } from "@/components/contact/contact-form"
-import { MapPin, Phone, Mail, Instagram } from "lucide-react"
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -106,8 +106,18 @@ export default function ContactPage() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                                        aria-label="Instagram"
                                     >
                                         <Instagram className="h-5 w-5" />
+                                    </a>
+                                    <a
+                                        href="https://www.facebook.com/p/Landschaft-100067467157622/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                                        aria-label="Facebook"
+                                    >
+                                        <Facebook className="h-5 w-5" />
                                     </a>
                                 </div>
                             </div>

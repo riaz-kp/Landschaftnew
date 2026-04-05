@@ -33,7 +33,7 @@ function ImageDropzone({ onDrop, onRemove, accept, multiple, label, currentImage
                 <div className="flex flex-wrap gap-2 mt-2">
                     {currentImages.map((src: string, i: number) => (
                         <div key={i} className="relative w-16 h-16 rounded overflow-hidden shadow-sm border group">
-                            <img src={src} className="w-full h-full object-cover" alt="Preview" />
+                            <img src={src} className="w-full h-full object-cover" alt={`Gallery upload preview ${i + 1}`} />
                             <button
                                 type="button"
                                 onClick={(e) => {

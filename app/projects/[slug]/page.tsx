@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 {project.image ? (
                     <img
                         src={project.image}
-                        alt={project.title}
+                        alt={`Landscape design project: ${project.title} by Landschaft`}
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                 ) : (
@@ -118,7 +118,7 @@ export default async function ProjectPage({ params }: PageProps) {
                                 <div className="grid gap-4 sm:grid-cols-2">
                                     {project.gallery.map((img, i) => (
                                         <div key={i} className="aspect-[4/3] bg-neutral-100 rounded-lg overflow-hidden border">
-                                            <img src={img} alt={`${project.title} gallery ${i}`} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+                                            <img src={img} alt={`${project.title} landscape architecture details - view ${i + 1} by Landschaft`} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
                                         </div>
                                     ))}
                                 </div>

@@ -39,7 +39,7 @@ export function ProjectList({ initialProjects }: { initialProjects: Project[] })
                             {project.image ? (
                                 <img
                                     src={project.image}
-                                    alt={project.title}
+                                    alt={`Landschaft landscape architecture project: ${project.title}`}
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                                 />
                             ) : (

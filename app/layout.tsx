@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,6 +98,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />
+        <WhatsAppButton />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -114,7 +116,8 @@ export default function RootLayout({
                 "availableLanguage": "en"
               },
               "sameAs": [
-                "https://www.instagram.com/teamlandschaft"
+                "https://www.instagram.com/teamlandschaft",
+                "https://www.facebook.com/p/Landschaft-100067467157622/"
               ]
             })
           }}

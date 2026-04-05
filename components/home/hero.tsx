@@ -10,7 +10,7 @@ export function Hero() {
             <div className="absolute inset-0 z-0">
                 <Image
                     src="https://res.cloudinary.com/dnsmrborw/image/upload/v1772708486/WhatsApp_Image_2026-01-07_at_19.36.18_vziqqg.jpg"
-                    alt="Landschaft Hero"
+                    alt="Landschaft high-end landscape architecture and environmental planning hero image"
                     fill
                     className="object-cover"
                     priority

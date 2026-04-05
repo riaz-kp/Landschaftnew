@@ -39,7 +39,7 @@ export async function FeaturedProjects() {
                                             {project.image && project.image !== "/placeholder.svg" ? (
                                                 <img
                                                     src={project.image}
-                                                    alt={project.title}
+                                                    alt={`Featured landscape architecture project: ${project.title}`}
                                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                                                 />
                                             ) : (

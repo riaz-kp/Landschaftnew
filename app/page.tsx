@@ -6,6 +6,7 @@ import { FeaturedProjects } from "@/components/home/featured-projects";
 import { Stats } from "@/components/home/stats";
 import { WhyLandschaft } from "@/components/home/why-landschaft";
 import { CTA } from "@/components/home/cta";
+import { FAQ } from "@/components/home/faq";
 import { FadeIn } from "@/components/animations/fade-in";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <FadeIn><ServicesGrid /></FadeIn>
       <FadeIn><FeaturedProjects /></FadeIn>
       <FadeIn><WhyLandschaft /></FadeIn>
+      <FadeIn><FAQ /></FadeIn>
       <FadeIn><CTA /></FadeIn>
     </div>
   );

@@ -64,7 +64,7 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
                                     <h3 className="text-sm font-medium text-muted-foreground mb-3 uppercase tracking-wider">Cover Image</h3>
                                     <div className="aspect-[16/9] w-full bg-muted rounded-lg overflow-hidden border">
                                         {project.image ? (
-                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                                            <img src={project.image} alt={`Cover image for ${project.title}`} className="w-full h-full object-cover" />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-muted-foreground">No cover image</div>
                                         )}
@@ -77,7 +77,7 @@ export default async function AdminProjectDetailsPage({ params }: PageProps) {
                                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                             {project.gallery.map((img, i) => (
                                                 <div key={i} className="aspect-square bg-muted rounded-lg overflow-hidden border group relative">
-                                                    <img src={img} alt={`${project.title} gallery ${i}`} className="w-full h-full object-cover" />
+                                                    <img src={img} alt={`${project.title} gallery view ${i + 1}`} className="w-full h-full object-cover" />
                                                 </div>
                                             ))}
                                         </div>
