@@ -48,9 +48,9 @@ const services = [
     },
     {
         id: "maintenance",
-        title: "Maintenance",
-        description: "A garden is never finished; it grows. Our skilled horticulture team provides ongoing care to ensure your landscape reaches its full potential.",
-        features: ["Seasonal pruning & care", "Irrigation monitoring", "Plant health management", "Lawn care & aeration"],
+        title: "Maintenance & AMC",
+        description: "A garden is a living system that requires consistent care. We offer robust Annual Maintenance Contracts (AMC), with all new installations receiving one month of complimentary service.",
+        features: ["Seasonal pruning & care", "1 Month Free Maintenance", "Annual Maintenance Contracts", "Plant health management"],
         image: "https://res.cloudinary.com/dnsmrborw/image/upload/v1772711826/service-monitoring_osq8o0.jpg"
     }
 ]
