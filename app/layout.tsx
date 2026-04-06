@@ -104,20 +104,84 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Landschaft",
-              "url": "https://landschaft.in",
-              "logo": "https://landschaft.in/logo.svg",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-9645-333-700",
-                "contactType": "customer service",
-                "areaServed": "IN",
-                "availableLanguage": "en"
-              },
-              "sameAs": [
-                "https://www.instagram.com/teamlandschaft",
-                "https://www.facebook.com/p/Landschaft-100067467157622/"
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://landschaft.in/#organization",
+                  "name": "Landschaft",
+                  "url": "https://landschaft.in",
+                  "logo": "https://landschaft.in/logo.png",
+                  "image": "https://landschaft.in/images/hero.jpeg",
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9645-333-700",
+                    "contactType": "customer service",
+                    "areaServed": "IN",
+                    "availableLanguage": "en"
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/teamlandschaft",
+                    "https://www.facebook.com/p/Landschaft-100067467157622/"
+                  ]
+                },
+                {
+                  "@type": "LandscapingService",
+                  "@id": "https://landschaft.in/#kondotty-studio",
+                  "name": "Landschaft - Kondotty Studio",
+                  "description": "Premium landscape architecture, environmental planning, and garden design services in Kondotty, Kerala.",
+                  "url": "https://landschaft.in/contact",
+                  "telephone": "+91-9645-333-700",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "2nd Floor, Watani Complex, Kondotty (Kizhisseri)",
+                    "addressLocality": "Malappuram",
+                    "addressRegion": "Kerala",
+                    "postalCode": "673641",
+                    "addressCountry": "IN"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "11.1444",
+                    "longitude": "75.9611"
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                },
+                {
+                  "@type": "LandscapingService",
+                  "@id": "https://landschaft.in/#calicut-studio",
+                  "name": "Landschaft - Calicut Studio",
+                  "description": "Premium landscape architecture and design studio in Calicut, Kerala.",
+                  "url": "https://landschaft.in/contact",
+                  "telephone": "+91-9645-333-700",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "13/2306 Near Blum, Chevarambalam Road, Malaparamba",
+                    "addressLocality": "Calicut",
+                    "addressRegion": "Kerala",
+                    "postalCode": "673009",
+                    "addressCountry": "IN"
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://landschaft.in/#website",
+                  "url": "https://landschaft.in",
+                  "name": "Landschaft",
+                  "publisher": {
+                    "@id": "https://landschaft.in/#organization"
+                  }
+                }
               ]
             })
           }}
