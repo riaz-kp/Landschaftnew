@@ -24,7 +24,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://landschaft.in"),
   title: {
-    default: "Landschaft | Environmental Planning & Landscape Architecture",
+    default: "Environmental Planning & Landscape Architecture | Landschaft",
     template: "%s | Landschaft",
   },
   description: "Crafting living landscapes that endure. A design-led environmental planning studio in Kerala specializing in landscape architecture and environmental design.",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Landschaft | Environmental Planning & Landscape Architecture",
+    title: "Environmental Planning & Landscape Architecture | Landschaft",
     description: "Crafting living landscapes that endure. A design-led environmental planning studio in Kerala.",
     url: "https://landschaft.in",
     siteName: "Landschaft",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Landschaft | Environmental Planning & Landscape Architecture",
+    title: "Environmental Planning & Landscape Architecture | Landschaft",
     description: "Crafting living landscapes that endure. A design-led environmental planning studio in Kerala.",
     images: ["/images/hero.jpeg"],
   },
