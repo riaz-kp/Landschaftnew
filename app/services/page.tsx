@@ -58,6 +58,33 @@ const services = [
 export default function ServicesPage() {
     return (
         <div className="flex flex-col min-h-screen">
+            {/* Services Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "itemListElement": services.map((service, index) => ({
+                            "@type": "ListItem",
+                            "position": index + 1,
+                            "item": {
+                                "@type": "Service",
+                                "name": service.title,
+                                "description": service.description,
+                                "provider": {
+                                    "@type": "Organization",
+                                    "name": "Landschaft",
+                                    "url": "https://landschaft.in"
+                                },
+                                "image": service.image,
+                                "areaServed": "Kerala"
+                            }
+                        }))
+                    })
+                }}
+            />
+
             <section className="pt-32 pb-16 bg-background">
                 <Container className="text-center">
                     <h1 className="text-4xl font-light text-foreground sm:text-5xl md:text-6xl">Our Services</h1>
