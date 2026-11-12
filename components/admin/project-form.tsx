@@ -4,6 +4,7 @@ import { useState, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { useDropzone } from "react-dropzone"
 import { Project } from "@/lib/data/projects"
+import { PROJECT_CATEGORIES, type ProjectCategory } from "@/lib/project-categories"
 import { addProject, updateProject, uploadImage } from "@/app/admin/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -148,7 +149,7 @@ export function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
                 slug: formData.slug,
                 title: formData.title,
                 location: formData.location || "",
-                category: formData.category as "Residential" | "Commercial" || "Residential",
+                category: formData.category || "Residential",
                 area: formData.area || "",
                 year: formData.year || new Date().getFullYear().toString(),
                 description: formData.description || "",
@@ -201,14 +202,15 @@ export function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
                         <label className="text-sm font-medium">Category</label>
                         <Select
                             value={formData.category || "Residential"}
-                            onValueChange={val => setFormData(prev => ({ ...prev, category: val as "Residential" | "Commercial" }))}
+                            onValueChange={val => setFormData(prev => ({ ...prev, category: val as ProjectCategory }))}
                         >
                             <SelectTrigger>
                                 <SelectValue placeholder="Select Category" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="Residential">Residential</SelectItem>
-                                <SelectItem value="Commercial">Commercial</SelectItem>
+                                {PROJECT_CATEGORIES.map(category => (
+                                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
                     </div>

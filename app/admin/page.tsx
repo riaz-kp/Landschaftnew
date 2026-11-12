@@ -3,13 +3,16 @@ import { AdminDashboard } from "./admin-dashboard"
 import { getProjects } from "@/lib/data/projects"
 import { Card, CardContent } from "@/components/ui/card"
 import { LayoutGrid, Home, Tag } from "lucide-react"
+import { PROJECT_CATEGORIES } from "@/lib/project-categories"
 
 export default async function AdminPage() {
     const projects = await getProjects()
 
     const featuredCount = projects.filter(p => p.featured).length
-    const residentialCount = projects.filter(p => p.category === "Residential").length
-    const commercialCount = projects.filter(p => p.category === "Commercial").length
+    const categoryCounts = PROJECT_CATEGORIES.map(category => ({
+        category,
+        count: projects.filter(p => p.category === category).length,
+    }))
 
     return (
         <div className="p-6 md:p-10 space-y-8 max-w-[1600px] mx-auto min-h-screen">
@@ -21,7 +24,7 @@ export default async function AdminPage() {
             </div>
 
             {/* Stats Overview */}
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 <div className="bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-slate-200 to-slate-100 shadow-sm transition-all hover:shadow-md duration-500">
                     <Card className="bg-white/95 border-none rounded-[23px] shadow-none h-full">
                         <CardContent className="p-6 flex items-center gap-5">
@@ -50,22 +53,19 @@ export default async function AdminPage() {
                     </Card>
                 </div>
 
-                <div className="bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-indigo-200 to-indigo-100 shadow-sm transition-all hover:shadow-md duration-500">
+                <div className="md:col-span-2 bg-white border-transparent p-[1px] rounded-3xl bg-gradient-to-br from-indigo-200 to-indigo-100 shadow-sm transition-all hover:shadow-md duration-500">
                     <Card className="bg-white/95 border-none rounded-[23px] shadow-none h-full">
                         <CardContent className="p-6 flex items-center gap-5 shrink-0">
                             <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-100 shrink-0">
                                 <Tag className="w-6 h-6" />
                             </div>
-                            <div className="flex gap-8">
-                                <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Residential</p>
-                                    <p className="text-2xl font-black text-slate-900">{residentialCount}</p>
-                                </div>
-                                <div className="w-px h-8 bg-slate-100 self-center" />
-                                <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Commercial</p>
-                                    <p className="text-2xl font-black text-slate-900">{commercialCount}</p>
-                                </div>
+                            <div className="grid flex-1 grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
+                                {categoryCounts.map(({ category, count }) => (
+                                    <div key={category} className="min-w-0 flex flex-col justify-between">
+                                        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1 leading-tight">{category}</p>
+                                        <p className="text-2xl font-black text-slate-900">{count}</p>
+                                    </div>
+                                ))}
                             </div>
                         </CardContent>
                     </Card>
