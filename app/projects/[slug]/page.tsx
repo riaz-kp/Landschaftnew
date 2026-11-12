@@ -4,6 +4,11 @@ import { ArrowLeft, MapPin, Tag } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { getProjects, getProjectBySlug } from "@/lib/data/projects"
+import {
+    ImageLightboxProvider,
+    ImageLightboxTrigger,
+    type LightboxImage,
+} from "@/components/projects/image-lightbox"
 import { Metadata } from "next"
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -49,7 +54,19 @@ export default async function ProjectPage({ params }: PageProps) {
         notFound()
     }
 
+    const heroAlt = `Landscape design project: ${project.title} by Landschaft`
+    const galleryAlt = (i: number) =>
+        `${project.title} landscape architecture details - view ${i + 1} by Landschaft`
+
+    // Hero first, then gallery; skip duplicates so each image appears once in the slideshow.
+    const slides: LightboxImage[] = []
+    if (project.image) slides.push({ src: project.image, alt: heroAlt })
+    project.gallery?.forEach((src, i) => {
+        if (src && !slides.some((s) => s.src === src)) slides.push({ src, alt: galleryAlt(i) })
+    })
+
     return (
+        <ImageLightboxProvider images={slides}>
         <article className="flex flex-col min-h-screen">
             {/* Hero Image */}
             <div className="relative aspect-[4/3] md:aspect-auto md:h-[70vh] w-full bg-neutral-200 overflow-hidden">
@@ -63,17 +80,23 @@ export default async function ProjectPage({ params }: PageProps) {
                 </div>
 
                 {project.image ? (
-                    <img
+                    <ImageLightboxTrigger
                         src={project.image}
-                        alt={`Landscape design project: ${project.title} by Landschaft`}
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
+                        label={`Open ${project.title} image slideshow`}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <img
+                            src={project.image}
+                            alt={heroAlt}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                    </ImageLightboxTrigger>
                 ) : (
                     <div className="absolute inset-0 bg-neutral-300" />
                 )}
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="pointer-events-none absolute inset-0 bg-black/30" />
 
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 text-white bg-gradient-to-t from-black/80 to-transparent">
+                <div className="pointer-events-none absolute bottom-0 left-0 w-full p-8 md:p-16 text-white bg-gradient-to-t from-black/80 to-transparent">
                     <Container>
                         <h1 className="text-4xl md:text-6xl font-light">{project.title}</h1>
                         <div className="mt-4 flex flex-wrap items-center gap-6 text-lg md:text-xl font-light opacity-90">
@@ -117,9 +140,14 @@ export default async function ProjectPage({ params }: PageProps) {
                             <section>
                                 <div className="grid gap-4 sm:grid-cols-2">
                                     {project.gallery.map((img, i) => (
-                                        <div key={i} className="aspect-[4/3] bg-neutral-100 rounded-lg overflow-hidden border">
-                                            <img src={img} alt={`${project.title} landscape architecture details - view ${i + 1} by Landschaft`} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
-                                        </div>
+                                        <ImageLightboxTrigger
+                                            key={i}
+                                            src={img}
+                                            label={`Open image ${i + 1} of ${project.title} in slideshow`}
+                                            className="group aspect-[4/3] w-full bg-neutral-100 rounded-lg overflow-hidden border"
+                                        >
+                                            <img src={img} alt={galleryAlt(i)} className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" />
+                                        </ImageLightboxTrigger>
                                     ))}
                                 </div>
                             </section>
@@ -148,5 +176,6 @@ export default async function ProjectPage({ params }: PageProps) {
                 }}
             />
         </article >
+        </ImageLightboxProvider>
     )
 }
