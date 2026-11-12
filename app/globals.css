@@ -89,3 +89,14 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* Autoplay progress bar in the project image lightbox */
+@keyframes lightbox-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
