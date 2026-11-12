@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Project } from "@/lib/data/projects"
+import { PROJECT_CATEGORIES } from "@/lib/project-categories"
 import { deleteProject, updateProject } from "./actions"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,7 +11,8 @@ import { Switch } from "@/components/ui/switch"
 import { toast } from "sonner"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MapPin, Image as ImageIcon, Star, Eye, MoreVertical, Pencil, Trash2, Globe, Plus, Search, Filter } from "lucide-react"
+import { MapPin, Image as ImageIcon, Star, Eye, MoreVertical, Pencil, Trash2, Globe, Plus, Search, Filter, ArrowUpDown } from "lucide-react"
+import { ProjectOrderList } from "@/components/admin/project-order-list"
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
@@ -20,6 +22,7 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
     const [projectToDelete, setProjectToDelete] = useState<string | null>(null)
     const [searchTerm, setSearchTerm] = useState("")
     const [categoryFilter, setCategoryFilter] = useState("All")
+    const [isReordering, setIsReordering] = useState(false)
 
     const filteredProjects = initialProjects.filter(project => {
         const query = searchTerm.toLowerCase()
@@ -52,6 +55,10 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
         }
     }
 
+    if (isReordering) {
+        return <ProjectOrderList projects={initialProjects} onClose={() => setIsReordering(false)} />
+    }
+
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Toolbar */}
@@ -74,16 +81,28 @@ export function AdminDashboard({ initialProjects }: { initialProjects: Project[]
 
                     <div className="flex items-center gap-3">
                         <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                            <SelectTrigger className="w-[180px] h-12 bg-white border-transparent shadow-sm rounded-2xl focus:ring-emerald-500/20 transition-all font-semibold text-slate-600">
+                            <SelectTrigger className="w-[220px] h-12 bg-white border-transparent shadow-sm rounded-2xl focus:ring-emerald-500/20 transition-all font-semibold text-slate-600">
                                 <Filter className="w-4 h-4 mr-2 text-slate-400" />
                                 <SelectValue placeholder="Category" />
                             </SelectTrigger>
                             <SelectContent align="end" className="rounded-2xl border-slate-100 shadow-xl">
                                 <SelectItem value="All" className="rounded-lg">All Categories</SelectItem>
-                                <SelectItem value="Residential" className="rounded-lg">Residential</SelectItem>
-                                <SelectItem value="Commercial" className="rounded-lg">Commercial</SelectItem>
+                                {PROJECT_CATEGORIES.map(category => (
+                                    <SelectItem key={category} value={category} className="rounded-lg">{category}</SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
+
+                        <Button
+                            variant="outline"
+                            onClick={() => setIsReordering(true)}
+                            disabled={initialProjects.length < 2}
+                            className="h-12 px-5 rounded-2xl bg-white border-transparent shadow-sm gap-2 shrink-0 font-bold text-slate-600 hover:text-slate-900"
+                            title="Change the order projects appear on the website"
+                        >
+                            <ArrowUpDown className="w-4 h-4" />
+                            <span>Reorder</span>
+                        </Button>
 
                         <Button asChild className="h-12 px-6 rounded-2xl bg-slate-900 hover:bg-black text-white shadow-lg shadow-slate-200 gap-2 shrink-0 font-bold transition-all hover:-translate-y-0.5 active:translate-y-0">
                             <Link href="/admin/projects/new">
