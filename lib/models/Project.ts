@@ -1,10 +1,11 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
+import { PROJECT_CATEGORIES, type ProjectCategory } from "@/lib/project-categories";
 
 export interface IProject extends Document {
     slug: string;
     title: string;
     location: string;
-    category: "Residential" | "Commercial";
+    category: ProjectCategory;
     area: string;
     year: string;
     description: string;
@@ -12,6 +13,7 @@ export interface IProject extends Document {
     gallery: string[];
     featured?: boolean;
     published?: boolean;
+    order?: number;
 }
 
 const ProjectSchema: Schema = new Schema(
@@ -19,7 +21,7 @@ const ProjectSchema: Schema = new Schema(
         slug: { type: String, required: true, unique: true },
         title: { type: String, required: true },
         location: { type: String, required: true },
-        category: { type: String, enum: ["Residential", "Commercial"], required: true },
+        category: { type: String, enum: [...PROJECT_CATEGORIES], required: true },
         area: { type: String, required: true },
         year: { type: String, required: true },
         description: { type: String, required: true },
@@ -27,6 +29,8 @@ const ProjectSchema: Schema = new Schema(
         gallery: [{ type: String }],
         featured: { type: Boolean, default: false },
         published: { type: Boolean, default: true },
+        // Display position set from the admin "Reorder" view; lower comes first.
+        order: { type: Number },
     },
     { timestamps: true }
 );

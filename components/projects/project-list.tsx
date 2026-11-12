@@ -5,8 +5,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Project } from "@/lib/data/projects"
 import { ArrowRight } from "lucide-react"
+import { PROJECT_CATEGORIES } from "@/lib/project-categories"
 
-const categories = ["All", "Residential", "Commercial"]
+const categories = ["All", ...PROJECT_CATEGORIES]
 
 export function ProjectList({ initialProjects }: { initialProjects: Project[] }) {
     const [filter, setFilter] = useState("All")
@@ -62,6 +63,12 @@ export function ProjectList({ initialProjects }: { initialProjects: Project[] })
                     </Link>
                 ))}
             </div>
+
+            {filteredProjects.length === 0 && (
+                <p className="py-16 text-center text-muted-foreground">
+                    No projects in this category yet.
+                </p>
+            )}
         </div>
     )
 }
